@@ -3,6 +3,8 @@ best redesign theme for youtube
 
 ## Preview
 `How it looks with standart settings`
+[Trending Day](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/day.png "Trending Day")
+[Trending Night](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/night.png "Trending Night")
 
 ## Quick Installation
 
@@ -11,5 +13,5 @@ best redesign theme for youtube
 
 ## License
 
-This theme is licensed under CC-BY-NC-4.0
+This theme is licensed under [CC-BY-NC-4.0](https://spdx.org/licenses/CC-BY-NC-4.0.html#licenseText).
 The rights to the original code as well as the YouTube logo belong to Google
