@@ -3,8 +3,8 @@ best redesign theme for youtube
 
 ## Preview
 `How it looks with standart settings`
-[Trending Day](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/day.png "Trending Day")
-[Trending Night](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/night.png "Trending Night")
+![Trending Day](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/day.png "Trending Day")
+![Trending Night](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/night.png "Trending Night")
 
 ## Quick Installation
 
