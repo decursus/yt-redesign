@@ -1,5 +1,5 @@
 # YouTube Material Re-Design
-best redesign theme for youtube
+Simplified theme redesign for YouTube
 
 ## Preview
 `How it looks with standart settings`
