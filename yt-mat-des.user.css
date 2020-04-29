@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-mat-des
 @updateURL    https://dl.dropboxusercontent.com/s/zexfivap5fdpkns/yt-mat-des.user.css?dl=0
 @supportURL   https://vk.me/stckhlmtrs
-@version      0.2.7-b
+@version      0.2.8-b
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -542,6 +542,15 @@
 		color: var(--url-color) !important;
 	}
 
+/* ============ COMMENTBOX // СТРОКА КОММЕНТИРОВАНИЯ ============ */
+	.focused-line.paper-input-container {
+		/* border-color: #ee353e !important; */
+		border-bottom: var(--searchbox-focus-color) solid 1px;
+		transition: border-bottom 350ms ease-in-out;
+		-webkit-transition: border-bottom 350ms ease-in-out;
+		-o-transition: border-bottom 350ms ease-in-out;
+	}	
+	
 /* ============ SEARCHBOX // СТРОКА ПОИСКА ============ */
 	#search-icon-legacy.ytd-searchbox,
 	#container.ytd-searchbox {
