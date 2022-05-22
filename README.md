@@ -1,4 +1,4 @@
-# YouTube Material Re-Design
+# YouTube Redesign
 Simplified theme redesign for YouTube
 
 ## Preview
