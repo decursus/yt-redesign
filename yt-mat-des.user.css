@@ -585,6 +585,11 @@
         width: 0%;
     }
 
+    yt-icon.ytd-logo {
+        height: 20px;
+        width: 90px;
+        padding: 10px 6px 10px 8px;
+    }
 
     /* ============ COMMENTBOX // СТРОКА КОММЕНТИРОВАНИЯ ============ */
     .focused-line.paper-input-container {
