@@ -32,11 +32,11 @@
 		--day-lighter: #EAEAEA;
 		--day-lightest: #FFFFFF;
 		/* Night // Ночь */
-		--night-darkest: #1C1F28;
-		--night-darker: #232733;
+		--night-darkest: #14191f /*#1C1F28*/;
+		--night-darker: #14191f /*#232733*/;
 		--night-dark: #333949;
 		--night-light: #6B7699;
-		--night-lighter: #9CA2B7;
+		--night-lighter: #e1e5ea /*#9CA2B7*/;
 		/* Like // Лайк */
 		--rb-red: #ee353e;
 		--rb-green: #20944b;
@@ -525,6 +525,37 @@
 	#expander a.yt-simple-endpoint.yt-formatted-string {
 		color: var(--url-color) !important;
 	}
+
+/* ============ PLAYER/PLATE/BUTTON ROUNDINGS // СКРУГЛЕНИЯ ПЛЕЕРА/ПЛАШЕК/КНОПОК ============ */    
+    	ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+        	border: 1px solid var(--yt-spec-10-percent-layer);
+        	border-radius: 16px;
+        	padding: 0 4px 0 12px;
+    	}    
+    
+    	ytd-comments-entry-point-header-renderer:not([modern-metapanel]) {
+		box-sizing: border-box;
+		height: 52px;
+		border: 1px solid var(--yt-spec-10-percent-layer);
+		border-radius: 16px;
+		color: var(--yt-spec-text-primary);
+		padding: 12px 4px 12px 12px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+    	}    
+    
+    	.html5-video-player .video-click-tracking, .html5-video-player .video-stream {
+        	display: block;
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	border-radius: 16px;
+    	}    
+   
+    	tp-yt-paper-button.ytd-subscribe-button-renderer {
+      		border-radius: 12px;
+    	} 
 
 /* ============ COMMENTBOX // СТРОКА КОММЕНТИРОВАНИЯ ============ */
 	.focused-line.paper-input-container {
