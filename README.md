@@ -11,7 +11,7 @@ Simplified theme redesign for YouTube
 
 [![Install Stylus](https://img.shields.io/badge/Step%201%3A-Install%20Stylus-333949?style=for-the-badge)](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
-[![Install Theme](https://img.shields.io/badge/Step%202%3A-Install%20Theme-333949?style=for-the-badge)](https://dl.dropboxusercontent.com/s/zexfivap5fdpkns/yt-mat-des.user.css?dl=0)
+[![Install Theme](https://img.shields.io/badge/Step%202%3A-Install%20Theme-333949?style=for-the-badge)]([https://dl.dropboxusercontent.com/s/zexfivap5fdpkns/yt-mat-des.user.css?dl=0](https://raw.githubusercontent.com/decursus/yt-redesign/master/yt-mat-des.user.css))
 
 ## License
 
