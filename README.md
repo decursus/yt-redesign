@@ -4,8 +4,8 @@ Simplified theme redesign for YouTube
 ## Preview
 `How it looks with standart settings`
 
-![Trending Day](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/day.png "Trending Day")
-![Trending Night](https://raw.githubusercontent.com/decursus/yt-mat-des/master/preview/night.png "Trending Night")
+![Trending Night](https://raw.githubusercontent.com/decursus/yt-redesign/master/preview/(0.4.3-b)%20Unauthorised%20user%2C%20Dark%20Theme.png "0.4.3-b Dark Theme, Video Player, Unauthorised user")
+
 
 ## Quick Installation
 
