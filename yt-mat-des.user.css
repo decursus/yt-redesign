@@ -1,27 +1,25 @@
 /* ==UserStyle==
-@name         YT-material design
+@name         YT-Redesign
 @description  best redesign for yt
 @namespace    https://github.com/decursus/yt-mat-des
 @homepageURL  https://github.com/decursus/yt-mat-des
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-stable
+@version      0.5.1-stable_fix-1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
 
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
-@var select yt-timebar "Time Bar" ["stand:Standart", "thinking:Thinkning Emoji", "nya:Nyan Cat"]
-@var select yt-likecolor "Like Color" ["stand:Standart", "rb:Green and Red", "pv:Pink and Violet"]
+@var select yt-timebar "Time Bar" ["stand:Standart", "orng:Orange", "thinking:Thinkning Emoji", "nya:Nyan Cat"]
+@var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
 @var select yt-blur "Blur" ["off:Off", "on:On"]
 
 ==/UserStyle== */
-
 /* 
 BLUR setting works only in Dark Theme
 РАЗМЫТИЕ работает только в тёмной теме
 */
-
 @-moz-document domain("www.youtube.com") {
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
     :root {
@@ -44,9 +42,9 @@ BLUR setting works only in Dark Theme
         --night-light: #6B7699;
         --night-lighter: #e1e5ea/*#9CA2B7*/;
         /* Like // Лайк */
-        --rb-red: #ee353e;
-        --rb-green: #20944b;
-        --pv-pink: #d553c5;
+        --gr-red: #ee353e;
+        --gr-green: #20944b;
+        --pv-pink: #ee5ddc;
         --pv-violet: #a953d5;
     }
 
@@ -208,61 +206,163 @@ BLUR setting works only in Dark Theme
             border-radius: 10px !important;
             -webkit-backdrop-filter: blur(10px) !important;
             transition-duration: 200ms !important;
-        }      
-        
+        }
+
         html[dark] #contentWrapper.tp-yt-iron-dropdown > * {
             background-color: #2323233b !important;
         }
-        
+
         html[dark] #contentWrapper.tp-yt-iron-dropdown > * {
             border-radius: 10px !important;
             backdrop-filter: blur(10px) !important;
         }
     }
-    
+
     else if yt-blur==off {
         html[dark] #contentContainer.tp-yt-app-drawer[opened] {
             -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
             border-radius: 10px !important;
             transition-duration: 200ms !important;
-        }    
-        
+        }
+
         #contentWrapper.tp-yt-iron-dropdown > * {
             border-radius: 10px !important;
-        }  
+        }
     }
 
     /* TIME BAR // ВРЕМЕННАЯ ШКАЛА */
-    if yt-timebar==thinking {
+    if yt-timebar==orng {
+        .html5-scrubber-button:hover,
+        .ytp-scrubber-button:hover,
+        .ytp-swatch-background-color,
+        .ytp-swatch-background-color-secondary {
+            background: #e08517 !important;
+        }
+
+        .html5-play-progress,
+        .ytp-play-progress {
+            background: #e08517 !important;
+        }
+
+        .ytp-volume-slider-track,
+        .ytp-volume-slider-handle:before {
+            background: #e08517 !important;
+            z-index: -117;
+        }
+
+        .ytp-settings-button.ytp-hd-quality-badge::after,
+        .ytp-settings-button.ytp-4k-quality-badge::after,
+        .ytp-settings-button.ytp-5k-quality-badge::after,
+        .ytp-settings-button.ytp-8k-quality-badge::after,
+        .ytp-settings-button.ytp-3d-badge::after {
+            background-color: #e08517 !important;
+        }
+
+        .ytp-swatch-color {
+            color: #e08517 !important;
+        }
+
+        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+            background: #e08517 !important;
+        }
+
+        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
+            fill: #e08517 !important;
+        }
+
+        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
+        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
+            fill: #e08517 !important;
+        }
+
+        .resume-playback-progress-bar {
+            background: #e08517 !important;
+        }
+
+        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+            background-color: #e08517 !important;
+        }
+
+        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
+            background-color: #e08517 !important;
+        }
+
+        .video-extras-sparkbar-likes-extras2-disabled {
+            background-color: #e08517 !important;
+        }
+    }
+
+    else if yt-timebar==thinking {
         .ytp-swatch-background-color {
             background-color: #ffcc4d;
         }
 
-        .ytp-scrubber-button {
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGNpcmNsZSBmaWxsPSIjRkZDQjRDIiBjeD0iMTgiIGN5PSIxNy4wMTgiIHI9IjE3Ii8+PHBhdGggZmlsbD0iIzY1NDcxQiIgZD0iTTE0LjUyNCAyMS4wMzZjLS4xNDUtLjExNi0uMjU4LS4yNzQtLjMxMi0uNDY0LS4xMzQtLjQ2LjEzLS45MTguNTktMS4wMjEgNC41MjgtMS4wMjEgNy41NzcgMS4zNjMgNy43MDYgMS40NjUuMzg0LjMwNi40NTkuODQ1LjE3MyAxLjIwNS0uMjg2LjM1OC0uODI4LjQwMS0xLjIxMS4wOTctLjExLS4wODQtMi41MjMtMS45MjMtNi4xODItMS4wOTgtLjI3NC4wNjEtLjU1NC0uMDE2LS43NjQtLjE4NHoiLz48ZWxsaXBzZSBmaWxsPSIjNjU0NzFCIiBjeD0iMTMuMTE5IiBjeT0iMTEuMTc0IiByeD0iMi4xMjUiIHJ5PSIyLjY1NiIvPjxlbGxpcHNlIGZpbGw9IiM2NTQ3MUIiIGN4PSIyNC4zNzUiIGN5PSIxMi4yMzYiIHJ4PSIyLjEyNSIgcnk9IjIuNjU2Ii8+PHBhdGggZmlsbD0iI0YxOTAyMCIgZD0iTTE3LjI3NiAzNS4xNDlzMS4yNjUtLjQxMSAxLjQyOS0xLjM1MmMuMTczLS45NzItLjYyNC0xLjE2Ny0uNjI0LTEuMTY3czEuMDQxLS4yMDggMS4xNzItMS4zNzZjLjEyMy0xLjEwMS0uODYxLTEuMzYzLS44NjEtMS4zNjNzLjk3LS40IDEuMDE2LTEuNTM5Yy4wMzgtLjk1OS0uOTk1LTEuNDI4LS45OTUtMS40MjhzNS4wMzgtMS4yMjEgNS41NTYtMS4zNDFjLjUxNi0uMTIgMS4zMi0uNjE1IDEuMDY5LTEuNjk0LS4yNDktMS4wOC0xLjIwNC0xLjExOC0xLjY5Ny0xLjAwMy0uNDk0LjExNS02Ljc0NCAxLjU2Ni04LjkgMi4wNjhsLTEuNDM5LjMzNGMtLjU0LjEyNy0uNzg1LS4xMS0uNDA0LS41MTIuNTA4LS41MzYuODMzLTEuMTI5Ljk0Ni0yLjExMy4xMTktMS4wMzUtLjIzMi0yLjMxMy0uNDMzLTIuODA5LS4zNzQtLjkyMS0xLjAwNS0xLjY0OS0xLjczNC0xLjg5OS0xLjEzNy0uMzktMS45NDUuMzIxLTEuNTQyIDEuNTYxLjYwNCAxLjg1NC4yMDggMy4zNzUtLjgzMyA0LjI5My0yLjQ0OSAyLjE1Ny0zLjU4OCAzLjY5NS0yLjgzIDYuOTczLjgyOCAzLjU3NSA0LjM3NyA1Ljg3NiA3Ljk1MiA1LjA0OGwzLjE1Mi0uNjgxeiIvPjxwYXRoIGZpbGw9IiM2NTQ3MUIiIGQ9Ik05LjI5NiA2LjM1MWMtLjE2NC0uMDg4LS4zMDMtLjIyNC0uMzkxLS4zOTktLjIxNi0uNDI4LS4wNC0uOTI3LjM5My0xLjExMiA0LjI2Ni0xLjgzMSA3LjY5OS0uMDQzIDcuODQzLjAzNC40MzMuMjMxLjYwOC43NDcuMzkxIDEuMTU0LS4yMTYuNDA1LS43NC41NDYtMS4xNzMuMzE4LS4xMjMtLjA2My0yLjgzMi0xLjQzMi02LjI3OC4wNDctLjI1Ny4xMDktLjU0Ny4wODUtLjc4NS0uMDQyem0xMi4xMzUgMy43NWMtLjE1Ni0uMDk4LS4yODYtLjI0My0uMzYyLS40MjQtLjE4Ny0uNDQyLjAyMy0uOTI3LjQ2OC0xLjA4NCA0LjM4MS0xLjUzNiA3LjY4NS40OCA3LjgyMy41NjcuNDE1LjI2LjU1NS43ODcuMzEyIDEuMTc4LS4yNDIuMzktLjc3Ni40OTUtMS4xOTEuMjM4LS4xMi0uMDcyLTIuNzI3LTEuNjIxLTYuMjY3LS4zNzktLjI2Ni4wOTEtLjU1My4wNDYtLjc4My0uMDk2eiIvPjwvc3ZnPg==");
-            width: 18px !important;
-            height: 18px !important;
-            border: none !important;
-            margin-left: -2px !important;
-            margin-top: 0px !important;
+        .html5-play-progress,
+        .ytp-play-progress {
+            background: #ffcc4d !important;
         }
 
-        .html5-progress-bar-container,
-        .ytp-progress-bar-container {
-            height: 8px !important;
+        .ytp-volume-slider-track,
+        .ytp-volume-slider-handle:before {
+            background: #ffcc4d !important;
+            z-index: -117;
+        }
+
+        .ytp-settings-button.ytp-hd-quality-badge::after,
+        .ytp-settings-button.ytp-4k-quality-badge::after,
+        .ytp-settings-button.ytp-5k-quality-badge::after,
+        .ytp-settings-button.ytp-8k-quality-badge::after,
+        .ytp-settings-button.ytp-3d-badge::after {
+            background-color: #ffcc4d !important;
+        }
+
+        .ytp-swatch-color {
+            color: #ffcc4d !important;
+        }
+
+        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+            background: #ffcc4d !important;
+        }
+
+        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
+            fill: #ffcc4d !important;
+        }
+
+        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
+        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
+            fill: #ffcc4d !important;
+        }
+
+        .resume-playback-progress-bar {
+            background: #ffcc4d !important;
+        }
+
+        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+            background-color: #ffcc4d !important;
+        }
+
+        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
+            background-color: #ffcc4d !important;
+        }
+
+        .video-extras-sparkbar-likes-extras2-disabled {
+            background-color: #ffcc4d !important;
+        }        
+        
+        .ytp-scrubber-button {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGNpcmNsZSBmaWxsPSIjRkZDQjRDIiBjeD0iMTgiIGN5PSIxNy4wMTgiIHI9IjE3Ii8+PHBhdGggZmlsbD0iIzY1NDcxQiIgZD0iTTE0LjUyNCAyMS4wMzZjLS4xNDUtLjExNi0uMjU4LS4yNzQtLjMxMi0uNDY0LS4xMzQtLjQ2LjEzLS45MTguNTktMS4wMjEgNC41MjgtMS4wMjEgNy41NzcgMS4zNjMgNy43MDYgMS40NjUuMzg0LjMwNi40NTkuODQ1LjE3MyAxLjIwNS0uMjg2LjM1OC0uODI4LjQwMS0xLjIxMS4wOTctLjExLS4wODQtMi41MjMtMS45MjMtNi4xODItMS4wOTgtLjI3NC4wNjEtLjU1NC0uMDE2LS43NjQtLjE4NHoiLz48ZWxsaXBzZSBmaWxsPSIjNjU0NzFCIiBjeD0iMTMuMTE5IiBjeT0iMTEuMTc0IiByeD0iMi4xMjUiIHJ5PSIyLjY1NiIvPjxlbGxpcHNlIGZpbGw9IiM2NTQ3MUIiIGN4PSIyNC4zNzUiIGN5PSIxMi4yMzYiIHJ4PSIyLjEyNSIgcnk9IjIuNjU2Ii8+PHBhdGggZmlsbD0iI0YxOTAyMCIgZD0iTTE3LjI3NiAzNS4xNDlzMS4yNjUtLjQxMSAxLjQyOS0xLjM1MmMuMTczLS45NzItLjYyNC0xLjE2Ny0uNjI0LTEuMTY3czEuMDQxLS4yMDggMS4xNzItMS4zNzZjLjEyMy0xLjEwMS0uODYxLTEuMzYzLS44NjEtMS4zNjNzLjk3LS40IDEuMDE2LTEuNTM5Yy4wMzgtLjk1OS0uOTk1LTEuNDI4LS45OTUtMS40MjhzNS4wMzgtMS4yMjEgNS41NTYtMS4zNDFjLjUxNi0uMTIgMS4zMi0uNjE1IDEuMDY5LTEuNjk0LS4yNDktMS4wOC0xLjIwNC0xLjExOC0xLjY5Ny0xLjAwMy0uNDk0LjExNS02Ljc0NCAxLjU2Ni04LjkgMi4wNjhsLTEuNDM5LjMzNGMtLjU0LjEyNy0uNzg1LS4xMS0uNDA0LS41MTIuNTA4LS41MzYuODMzLTEuMTI5Ljk0Ni0yLjExMy4xMTktMS4wMzUtLjIzMi0yLjMxMy0uNDMzLTIuODA5LS4zNzQtLjkyMS0xLjAwNS0xLjY0OS0xLjczNC0xLjg5OS0xLjEzNy0uMzktMS45NDUuMzIxLTEuNTQyIDEuNTYxLjYwNCAxLjg1NC4yMDggMy4zNzUtLjgzMyA0LjI5My0yLjQ0OSAyLjE1Ny0zLjU4OCAzLjY5NS0yLjgzIDYuOTczLjgyOCAzLjU3NSA0LjM3NyA1Ljg3NiA3Ljk1MiA1LjA0OGwzLjE1Mi0uNjgxeiIvPjxwYXRoIGZpbGw9IiM2NTQ3MUIiIGQ9Ik05LjI5NiA2LjM1MWMtLjE2NC0uMDg4LS4zMDMtLjIyNC0uMzkxLS4zOTktLjIxNi0uNDI4LS4wNC0uOTI3LjM5My0xLjExMiA0LjI2Ni0xLjgzMSA3LjY5OS0uMDQzIDcuODQzLjAzNC40MzMuMjMxLjYwOC43NDcuMzkxIDEuMTU0LS4yMTYuNDA1LS43NC41NDYtMS4xNzMuMzE4LS4xMjMtLjA2My0yLjgzMi0xLjQzMi02LjI3OC4wNDctLjI1Ny4xMDktLjU0Ny4wODUtLjc4NS0uMDQyem0xMi4xMzUgMy43NWMtLjE1Ni0uMDk4LS4yODYtLjI0My0uMzYyLS40MjQtLjE4Ny0uNDQyLjAyMy0uOTI3LjQ2OC0xLjA4NCA0LjM4MS0xLjUzNiA3LjY4NS40OCA3LjgyMy41NjcuNDE1LjI2LjU1NS43ODcuMzEyIDEuMTc4LS4yNDIuMzktLjc3Ni40OTUtMS4xOTEuMjM4LS4xMi0uMDcyLTIuNzI3LTEuNjIxLTYuMjY3LS4zNzktLjI2Ni4wOTEtLjU1My4wNDYtLjc4My0uMDk2eiIvPjwvc3ZnPg==");
+            width: 20px !important;
+            height: 20px !important;
+            border: none !important;
+            border-radius: 12px !important;
+            margin-left: -2px !important;
+            margin-top: -4px !important;
         }
 
         .html5-progress-bar,
         .ytp-progress-bar {
             margin-top: 8px !important;
-        }
-
-        .html5-progress-list,
-        .ytp-progress-list,
-        .video-ads .html5-progress-list.html5-ad-progress-list,
-        .video-ads .ytp-progress-list.ytp-ad-progress-list {
-            height: 8px !important;
         }
     }
 
@@ -403,24 +503,24 @@ BLUR setting works only in Dark Theme
     /* LIKE COLOR // ЦВЕТ ЛАЙКА */
     if yt-likecolor==rb {
         #container.ytd-sentiment-bar-renderer {
-            background-color: var(--rb-red) !important;
+            background-color: var(--gr-red) !important;
         }
 
         ytd-sentiment-bar-renderer[activated_] #like-bar.ytd-sentiment-bar-renderer,
         #like-bar.ytd-sentiment-bar-renderer {
-            background: var(--rb-green) !important;
+            background: var(--gr-green) !important;
         }
 
         ytd-toggle-button-renderer.style-default-active[is-icon-button]:first-child,
         ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(3) {
-            --yt-spec-call-to-action: var(--rb-green)!important;
-            --iron-icon-fill-color: var(--rb-green) !important;
+            --yt-spec-call-to-action: var(--gr-green)!important;
+            --iron-icon-fill-color: var(--gr-green) !important;
         }
 
         ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(2),
         ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(5) {
-            --yt-spec-call-to-action: var(--rb-red)!important;
-            --iron-icon-fill-color: var(--rb-red) !important;
+            --yt-spec-call-to-action: var(--gr-red)!important;
+            --iron-icon-fill-color: var(--gr-red) !important;
         }
     }
 
@@ -536,7 +636,7 @@ BLUR setting works only in Dark Theme
     }
 
     ytd-guide-entry-renderer[active] {
-        background-color: var(--sidepanel-menu-active);
+        /*background-color: var(--sidepanel-menu-active);*/
         border-radius: 0 25px 25px 0;
     }
 
@@ -574,6 +674,10 @@ BLUR setting works only in Dark Theme
         color: var(--url-color) !important;
     }
 
+    ytd-app {
+        --app-drawer-width: 246px !important;
+    }
+    
     /* ============ PLAYER/PLATE/BUTTON ROUNDINGS // СКРУГЛЕНИЯ ПЛЕЕРА/ПЛАШЕК/КНОПОК ============ */
     ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
         border: 1px solid var(--yt-spec-10-percent-layer);
@@ -607,23 +711,23 @@ BLUR setting works only in Dark Theme
     }
 
     /* ============ POPUP // ВСПЛЫВАЮЩИЕ ОКНА ============ */
-   html[dark] .ytp-popup,
-   html[dark] .ytp-contextmenu {
+    html[dark] .ytp-popup,
+    html[dark] .ytp-contextmenu {
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
         background: rgba(28, 28, 28, .5);
         text-shadow: 0 0 2px rgb(0 0 0 / 50%);
         border-radius: 16px;
     }
-    
-   .ytp-popup,
-   .ytp-contextmenu {
+
+    .ytp-popup,
+    .ytp-contextmenu {
         backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;       
+        -webkit-backdrop-filter: blur(10px) !important;
         background: rgba(28, 28, 28, .8);
         text-shadow: 0 0 2px rgb(0 0 0 / 50%);
         border-radius: 16px;
-    }    
+    }
 
 
     /* ============ CAPTIONS // СУБТИТРЫ ============ */
@@ -673,10 +777,10 @@ BLUR setting works only in Dark Theme
         backdrop-filter: blur(10px) !important;
         background-color: transparent !important;
     }
-    
-    tp-yt-app-drawer.ytd-app[persistent] {
+
+    /*tp-yt-app-drawer.ytd-app[persistent] {
         display: none;
-    }
+    }*/
 
     ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
         left: var(--app-drawer-width) !important;
@@ -716,7 +820,7 @@ BLUR setting works only in Dark Theme
         -webkit-backdrop-filter: blur(10px) !important;
         border-radius: 13px !important;
     }
-    
+
     #info-bar.ytd-miniplayer {
         border-radius: 0px 0px 13px 13px !important;
         z-index: -1 !important;
@@ -727,7 +831,7 @@ BLUR setting works only in Dark Theme
     #card.ytd-miniplayer {
         backdrop-filter: blur(10px) !important;
         border-radius: 13px !important;
-    }    
+    }
 
     #player-container.ytd-miniplayer {
         border-radius: 13px !important;
@@ -740,11 +844,11 @@ BLUR setting works only in Dark Theme
     html[dark] .video-container {
         backdrop-filter: blur(10px) !important;
     }
-    
+
     .video-container {
         backdrop-filter: blur(10px) !important;
     }
-    
+
 
     tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
         border-radius: 8px !important;
@@ -800,8 +904,8 @@ BLUR setting works only in Dark Theme
     tp-yt-paper-listbox {
         border-radius: 10px !important;
         background: none !important;
-    }    
-    
+    }
+
     tp-yt-iron-overlay-backdrop.opened {
         opacity: 50% !important;
     }
