@@ -11,11 +11,11 @@ Simplified theme redesign for YouTube
 
 [![Install Stylus](https://img.shields.io/badge/Step%201%3A-Install%20Stylus-333949?style=for-the-badge)](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
-[![Install Theme](https://img.shields.io/badge/Step%202%3A-Install%20Stable%20Theme-333949?style=for-the-badge)](https://github.com/decursus/yt-redesign/raw/master/themes/yt-mat-des.user.css)
+[![Install Theme](https://img.shields.io/badge/Step%202%3A-Install%20Stable%20Theme-333949?style=for-the-badge)](https://github.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css)
 
 or
 
-[![Install Experimental Version](https://img.shields.io/badge/Step%203%3A-Install%20Experimental%20Theme-333949?style=for-the-badge)](https://raw.githubusercontent.com/decursus/yt-redesign/raw/master/themes/yt-redesign_exp.user.css)
+[![Install Experimental Version](https://img.shields.io/badge/Step%203%3A-Install%20Experimental%20Theme-333949?style=for-the-badge)](https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css)
 
 ## License
 
