@@ -15,7 +15,7 @@ Simplified theme redesign for YouTube
 
 or
 
-[![Install Experimental Version](https://img.shields.io/badge/Step%203%3A-Install%20Experimental%20Theme-333949?style=for-the-badge)](https://raw.githubusercontent.com/decursus/yt-redesign/master/yt-redesign_exp.user.css)
+[![Install Experimental Version](https://img.shields.io/badge/Step%203%3A-Install%20Experimental%20Theme-333949?style=for-the-badge)](https://raw.githubusercontent.com/decursus/yt-redesign/themes/yt-redesign_exp.user.css)
 
 ## License
 
