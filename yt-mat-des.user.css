@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-mat-des
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-stable_fix-1
+@version      0.5.1-stable_fix-2
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -13,7 +13,6 @@
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
 @var select yt-timebar "Time Bar" ["stand:Standart", "orng:Orange", "thinking:Thinkning Emoji", "nya:Nyan Cat"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
-@var select yt-blur "Blur" ["off:Off", "on:On"]
 
 ==/UserStyle== */
 /* 
@@ -196,40 +195,6 @@ BLUR setting works only in Dark Theme
     }
 
     /* ============ STYLUS SETTING // НАСТРОЙКИ STYLUS ============ */
-    /* BLUR // РАЗМЫТИЕ */
-    if yt-blur==on {
-        html[dark] #contentContainer.tp-yt-app-drawer[opened] {
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            background: transparent !important;
-            backdrop-filter: blur(10px) !important;
-            border-radius: 10px !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            transition-duration: 200ms !important;
-        }
-
-        html[dark] #contentWrapper.tp-yt-iron-dropdown > * {
-            background-color: #2323233b !important;
-        }
-
-        html[dark] #contentWrapper.tp-yt-iron-dropdown > * {
-            border-radius: 10px !important;
-            backdrop-filter: blur(10px) !important;
-        }
-    }
-
-    else if yt-blur==off {
-        html[dark] #contentContainer.tp-yt-app-drawer[opened] {
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            border-radius: 10px !important;
-            transition-duration: 200ms !important;
-        }
-
-        #contentWrapper.tp-yt-iron-dropdown > * {
-            border-radius: 10px !important;
-        }
-    }
 
     /* TIME BAR // ВРЕМЕННАЯ ШКАЛА */
     if yt-timebar==orng {
@@ -765,7 +730,7 @@ BLUR setting works only in Dark Theme
         color: white !important;
     }
 
-    ytd-page-manager.ytd-app {
+    /*ytd-page-manager.ytd-app {
         margin-left: 0px !important;
     }
 
@@ -778,9 +743,9 @@ BLUR setting works only in Dark Theme
         background-color: transparent !important;
     }
 
-    /*tp-yt-app-drawer.ytd-app[persistent] {
+    tp-yt-app-drawer.ytd-app[persistent] {
         display: none;
-    }*/
+    }
 
     ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
         left: var(--app-drawer-width) !important;
@@ -798,133 +763,7 @@ BLUR setting works only in Dark Theme
 
     ytd-alert-with-button-renderer[is-displayed] {
         display: none !important;
-    }
-
-    /* ============ MINIPLAYER // МИНИПРОИГРЫВАТЕЛЬ ============ */
-    ytd-miniplayer.style-scope.ytd-app {
-        margin-right: 10px !important;
-        background: transparent !important;
-        box-shadow: transparent !important;
-    }
-
-    html[dark] #info-bar.ytd-miniplayer {
-        border-radius: 0px 0px 13px 13px !important;
-        z-index: -1 !important;
-        backdrop-filter: blur(10px) !important;
-    }
-
-    html[dark] ytd-miniplayer,
-    html[dark] .video.ytd-miniplayer,
-    html[dark] #card.ytd-miniplayer {
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border-radius: 13px !important;
-    }
-
-    #info-bar.ytd-miniplayer {
-        border-radius: 0px 0px 13px 13px !important;
-        z-index: -1 !important;
-    }
-
-    ytd-miniplayer,
-    .video.ytd-miniplayer,
-    #card.ytd-miniplayer {
-        backdrop-filter: blur(10px) !important;
-        border-radius: 13px !important;
-    }
-
-    #player-container.ytd-miniplayer {
-        border-radius: 13px !important;
-    }
-
-    ytd-miniplayer[animate-miniplayer] #expander-space.ytd-miniplayer {
-        height: 0!important;
-    }
-
-    html[dark] .video-container {
-        backdrop-filter: blur(10px) !important;
-    }
-
-    .video-container {
-        backdrop-filter: blur(10px) !important;
-    }
-
-
-    tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
-        border-radius: 8px !important;
-    }
-
-    tp-yt-paper-button.ytd-subscribe-button-renderer {
-
-        border-radius: 8px !important;
-    }
-
-    #tooltip.tp-yt-paper-tooltip {
-        border-radius: 10px !important;
-    }
-
-    yt-interaction.circular .fill.yt-interaction,
-    yt-interaction.circular .stroke.yt-interaction {
-        border-radius: 10px !important;
-    }
-
-    html[dark] #voice-search-button.ytd-masthead {
-        border-radius: 10px !important;
-        background-color: #0000003d !important;
-    }
-
-    html[dark] tp-yt-paper-dialog {
-        background: rgba(0, 0, 0, 0.1) !important;
-        backdrop-filter: blur(10px) !important;
-        border-radius: 10px !important;
-    }
-
-    html[dark] .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
-        border-radius: 10px !important;
-        backdrop-filter: blur(10px) !important;
-        background-color: transparent !important;
-    }
-
-    html[dark] tp-yt-paper-listbox {
-        border-radius: 10px !important;
-        backdrop-filter: blur(10px) !important;
-        background: none !important;
-    }
-
-    tp-yt-paper-dialog {
-        background: rgba(0, 0, 0, 0.1) !important;
-        border-radius: 10px !important;
-    }
-
-    .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
-        border-radius: 10px !important;
-        background-color: transparent !important;
-    }
-
-    tp-yt-paper-listbox {
-        border-radius: 10px !important;
-        background: none !important;
-    }
-
-    tp-yt-iron-overlay-backdrop.opened {
-        opacity: 50% !important;
-    }
-
-    #guide-content.ytd-app {
-        background: transparent !important;
-    }
-
-    .html5-video-player.ytp-inline-preview-mode:not(.ended-mode):not(.cued-mode):not(.unstarted-mode) {
-        border-radius: 13px !important;
-    }
-
-    .scroll-button.yt-third-party-share-target-section-renderer {
-        border-radius: 10px !important;
-    }
-
-    #checkbox.tp-yt-paper-checkbox {
-        border-radius: 5px !important;
-    }
+    }*/
 
     /* ============ LOGO // ЛОГОТИП ============ */
     #logo-icon {
