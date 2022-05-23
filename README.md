@@ -1,5 +1,5 @@
 # YouTube Redesign
-Simplified theme redesign for YouTube.
+Simplified theme redesign for YouTube :smile:.
 
 The theme was originally made for myself, so it's pretty straightforward. But a few my acquaintance liked it, so I decided to share it on GitHub.
 
