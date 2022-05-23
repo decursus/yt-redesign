@@ -846,26 +846,26 @@
         background-color: transparent !important;
     }
 
-    html[dark] tp-yt-paper-listbox {
+    /*html[dark] tp-yt-paper-listbox {
         border-radius: 10px !important;
         backdrop-filter: blur(10px) !important;
         background: none !important;
-    }
+    }*/
 
-    tp-yt-paper-dialog {
+    /*tp-yt-paper-dialog {
         background: rgba(0, 0, 0, 0.1) !important;
         border-radius: 10px !important;
-    }
+    }*/
 
     .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px !important;
         background-color: transparent !important;
     }
 
-    tp-yt-paper-listbox {
+    /*tp-yt-paper-listbox {
         border-radius: 10px !important;
         background: none !important;
-    }
+    }*/
 
     tp-yt-iron-overlay-backdrop.opened {
         opacity: 50% !important;
