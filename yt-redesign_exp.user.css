@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name         YT-Redesign_exp
-@description  experimental version
+@description  experimental version of YT-Redesign
 @namespace    https://github.com/decursus/yt-mat-des
 @homepageURL  https://github.com/decursus/yt-mat-des
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-exp
+@version      0.5.1-exp_fix1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -13,7 +13,7 @@
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
 @var select yt-timebar "Time Bar" ["stand:Standart", "orng:Orange", "thinking:Thinkning Emoji", "nya:Nyan Cat"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
-@var select yt-blur "Blur" ["off:Off", "on:On"]
+@var select yt-blur "Blur (experimental)" ["off:Off", "on:On"]
 
 ==/UserStyle== */
 /* 
@@ -216,6 +216,34 @@ BLUR setting works only in Dark Theme
             border-radius: 10px !important;
             backdrop-filter: blur(10px) !important;
         }
+        
+        html[dark] tp-yt-paper-dialog {
+            background: rgba(0, 0, 0, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: 10px !important;
+        }
+
+        html[dark] .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
+            border-radius: 10px !important;
+            backdrop-filter: blur(10px) !important;
+            background-color: transparent !important;
+        }
+
+        html[dark] tp-yt-paper-listbox {
+            border-radius: 10px !important;
+            backdrop-filter: blur(10px) !important;
+            background: none !important;
+        }
+
+        html[dark] tp-yt-paper-dialog {
+            background: rgba(0, 0, 0, 0.1) !important;
+            border-radius: 10px !important;
+        }
+
+        html[dark] tp-yt-paper-listbox {
+            border-radius: 10px !important;
+            background: none !important;
+        }        
     }
 
     else if yt-blur==off {
@@ -765,7 +793,7 @@ BLUR setting works only in Dark Theme
         color: white !important;
     }
 
-    ytd-page-manager.ytd-app {
+    /*ytd-page-manager.ytd-app {
         margin-left: 0px !important;
     }
 
@@ -778,9 +806,9 @@ BLUR setting works only in Dark Theme
         background-color: transparent !important;
     }
 
-    /*tp-yt-app-drawer.ytd-app[persistent] {
+    tp-yt-app-drawer.ytd-app[persistent] {
         display: none;
-    }*/
+    }
 
     ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
         left: var(--app-drawer-width) !important;
@@ -798,7 +826,7 @@ BLUR setting works only in Dark Theme
 
     ytd-alert-with-button-renderer[is-displayed] {
         display: none !important;
-    }
+    }*/
 
     /* ============ MINIPLAYER // МИНИПРОИГРЫВАТЕЛЬ ============ */
     ytd-miniplayer.style-scope.ytd-app {
@@ -873,7 +901,8 @@ BLUR setting works only in Dark Theme
         background-color: #0000003d !important;
     }
 
-    html[dark] tp-yt-paper-dialog {
+    /* Moved to the "Blur" function // Перенесено в функцию "Размытие"*/    
+    /*html[dark] tp-yt-paper-dialog {
         background: rgba(0, 0, 0, 0.1) !important;
         backdrop-filter: blur(10px) !important;
         border-radius: 10px !important;
@@ -891,19 +920,19 @@ BLUR setting works only in Dark Theme
         background: none !important;
     }
 
-    tp-yt-paper-dialog {
+    html[dark] tp-yt-paper-dialog {
         background: rgba(0, 0, 0, 0.1) !important;
         border-radius: 10px !important;
     }
 
+    html[dark] tp-yt-paper-listbox {
+        border-radius: 10px !important;
+        background: none !important;
+    }*/  
+    
     .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px !important;
         background-color: transparent !important;
-    }
-
-    tp-yt-paper-listbox {
-        border-radius: 10px !important;
-        background: none !important;
     }
 
     tp-yt-iron-overlay-backdrop.opened {
