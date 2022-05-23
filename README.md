@@ -1,10 +1,10 @@
 # YouTube Redesign
-Simplified theme redesign for YouTube
+Simplified theme redesign for YouTube.
+
+The theme was originally made for myself, so it's pretty straightforward. But a few my acquaintance liked it, so I decided to share it on GitHub.
 
 ## Preview
-`How it looks with standart settings`
-
-![Trending Night](https://raw.githubusercontent.com/decursus/yt-redesign/master/preview/(0.4.3-b)%20Unauthorised%20user%2C%20Dark%20Theme.png "0.4.3-b Dark Theme, Video Player, Unauthorised user")
+You can find a preview of the theme in [Preview](https://github.com/decursus/yt-redesign/tree/master/preview).
 
 
 ## Quick Installation
