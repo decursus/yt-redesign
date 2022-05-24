@@ -42,8 +42,8 @@ BLUR setting works only in Dark Theme
         --day-lighter: #EAEAEA;
         --day-lightest: #FFFFFF;
         /* Night // Ночь */
-        --night-darkest: #14191f/*#1C1F28*/;
-        --night-darker: #14191f/*#232733*/;
+        --night-darkest: #16161a /*#14191f*/ /*#1C1F28*/;
+        --night-darker: #16161a /*#14191f*/ /*#232733*/;
         --night-dark: #333949;
         --night-light: #6B7699;
         --night-lighter: #e1e5ea/*#9CA2B7*/;
@@ -305,7 +305,9 @@ BLUR setting works only in Dark Theme
         }
 
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            background: var(--ac-orng) i;
+            /*background: var(--ac-orng) i;*/
+            background-color: var(--ac-orng) i;
+            border-radius: 6px;
         }
 
         .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
@@ -378,7 +380,9 @@ BLUR setting works only in Dark Theme
         }
 
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            background: var(--ac-aspdbl) i;
+            /*background: var(--ac-aspdbl) i;*/
+            background-color: var(--ac-aspdbl) i;
+            border-radius: 6px;
         }
 
         .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
@@ -448,7 +452,9 @@ BLUR setting works only in Dark Theme
         }
 
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            background: var(--ac-yellw) i;
+            /*background: var(--ac-yellw) i;*/
+            background-color: var(--ac-yellw) i;
+            border-radius: 6px;
         }
 
         .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
@@ -1420,12 +1426,12 @@ BLUR setting works only in Dark Theme
         max-width: 935px i;
         border-top: 1px solid bd i;
 
-        /// Settings -> Add whitespace between sections.
+        /* Add whitespace between sections. */
         /.XfvCs { 
             margin-bottom: 30px i 
         }
 
-        /// Add userstyle information.
+        /* Add userstyle information. */
         > div::after {
             content: var(--note);
             white-space: pre-wrap;
