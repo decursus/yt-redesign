@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-stable_fix-6
+@version      0.5.1-stable_fix-7
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -18,7 +18,7 @@
 
 i = !important
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.1-stable_fix6 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.1-stable_fix7 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -48,9 +48,13 @@ i = !important
         --pv-violet: #a953d5;
         /* Accent Color // Актентирующий цвет */
         --ac-aspdbl: #7F5AF0
+        --ac-aspdbl2: #5b40ad
         --ac-orng: #e08517
+        --ac-orng2: #a66211
         --ac-yellw: #ffcc4d
+        --ac-yellw2: #c49d3b
         --ac-blu: #00a1e7
+        --ac-blu2: #006b99
 
         /* Footer */
         --note: note
@@ -269,8 +273,15 @@ i = !important
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-orng) i;
+            background-color: var(--ac-orng);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-orng2);
+            transition: all 0.25s i;
+        }           
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -344,8 +355,15 @@ i = !important
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-blu) i;
+            background-color: var(--ac-blu);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active, 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-blu2);
+            transition: all 0.25s i;
+        }        
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -419,8 +437,15 @@ i = !important
         }        
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-aspdbl) i;
+            background-color: var(--ac-aspdbl);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-aspdbl2);
+            transition: all 0.25s i;
+        }            
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -506,8 +531,15 @@ i = !important
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-yellw) i;
+            background-color: var(--ac-yellw);
+            transition: all 0.25s i;
         }    
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-yellw2);
+            transition: all 0.25s i;
+        }              
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -729,6 +761,10 @@ i = !important
         font-weight: 500 i;
     }
 
+    tp-yt-paper-dialog {
+        border-radius: 16px;
+    }    
+    
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
     #description-text.ytd-video-renderer,
     .content.ytd-channel-video-player-renderer,
@@ -922,41 +958,6 @@ i = !important
         color: white i;
     }
 
-    /*ytd-page-manager.ytd-app {
-        margin-left: 0px i;
-    }
-
-    ytd-mini-guide-renderer.ytd-app {
-        width: 0px i;
-    }
-
-    html[dark] yt-notification-action-renderer {
-        backdrop-filter: blur(10px) i;
-        background-color: transparent i;
-    }
-
-    tp-yt-app-drawer.ytd-app[persistent] {
-        display: none;
-    }
-
-    ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
-        left: var(--app-drawer-width) i;
-    }
-
-    ytd-browse[guide-persistent-and-visible] ytd-playlist-sidebar-renderer.ytd-browse {
-        left: var(--app-drawer-width) i;
-    }
-
-    ytd-browse[page-subtype=playlist][has-sidebar_] ytd-two-column-browse-results-renderer.ytd-browse,
-    ytd-browse[page-subtype=show][has-sidebar_] ytd-two-column-browse-results-renderer.ytd-browse {
-        padding-left: 360px !important;
-        margin-left: var(--app-drawer-width) i;
-    }
-
-    ytd-alert-with-button-renderer[is-displayed] {
-        display: none i;
-    }*/
-
     /* ============ MINIPLAYER // МИНИПРОИГРЫВАТЕЛЬ ============ */
     ytd-miniplayer.style-scope.ytd-app {
         margin-right: 10px i;
@@ -1030,38 +1031,16 @@ i = !important
         background-color: #0000003d i;
     }
 
-    html[dark] tp-yt-paper-dialog {
-        background: rgba(0, 0, 0, 0.1) i;
-        backdrop-filter: blur(10px) i;
-        border-radius: 10px i;
-    }
-
     html[dark] .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px i;
         backdrop-filter: blur(10px) i;
         background-color: transparent i;
     }
 
-    /*html[dark] tp-yt-paper-listbox {
-        border-radius: 10px i;
-        backdrop-filter: blur(10px) i;
-        background: none !important;
-    }*/
-
-    /*tp-yt-paper-dialog {
-        background: rgba(0, 0, 0, 0.1) i;
-        border-radius: 10px i;
-    }*/
-
     .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px i;
         background-color: transparent i;
     }
-
-    /*tp-yt-paper-listbox {
-        border-radius: 10px i;
-        background: none i;
-    }*/
 
     tp-yt-iron-overlay-backdrop.opened {
         opacity: 50% i;
