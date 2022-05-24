@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-exp_fix4
+@version      0.5.1-exp_fix5
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -24,7 +24,7 @@ BLUR setting works only in Dark Theme
 РАЗМЫТИЕ работает только в тёмной теме
 */
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.1-exp_fix4 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.1-exp_fix5 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -54,9 +54,13 @@ BLUR setting works only in Dark Theme
         --pv-violet: #a953d5;
         /* Accent Color // Актентирующий цвет */
         --ac-aspdbl: #7F5AF0
+        --ac-aspdbl2: #5b40ad
         --ac-orng: #e08517
+        --ac-orng2: #a66211
         --ac-yellw: #ffcc4d
+        --ac-yellw2: #c49d3b
         --ac-blu: #00a1e7
+        --ac-blu2: #006b99
 
         /* Footer */
         --note: note
@@ -289,7 +293,7 @@ BLUR setting works only in Dark Theme
 
         .ytp-volume-slider-track,
         .ytp-volume-slider-handle:before {
-            background: var(--ac-orng) it;
+            background: var(--ac-orng) i;
             z-index: -117;
         }
 
@@ -308,7 +312,7 @@ BLUR setting works only in Dark Theme
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
             /*background: var(--ac-orng) i;*/
             background-color: var(--ac-orng) i;
-            border-radius: 6px;
+            border-radius: 6px;            
         }
 
         .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
@@ -337,8 +341,15 @@ BLUR setting works only in Dark Theme
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-orng) i;
+            background-color: var(--ac-orng);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-orng2);
+            transition: all 0.25s i;
+        }           
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -346,7 +357,7 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-orng) i;
             border: none;
-        }        
+        }          
     }
 
     else if yt-accentclr==blu {
@@ -412,8 +423,15 @@ BLUR setting works only in Dark Theme
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-blu) i;
+            background-color: var(--ac-blu);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active,
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-blu2);
+            transition: all 0.25s i;
+        }        
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -422,7 +440,7 @@ BLUR setting works only in Dark Theme
             background: var(--ac-blu) i;
             border: none;
         }          
-    }        
+    }    
     
     else if yt-accentclr==aspdbl {
         .html5-scrubber-button:hover,
@@ -484,11 +502,18 @@ BLUR setting works only in Dark Theme
 
         .video-extras-sparkbar-likes-extras2-disabled {
             background-color: var(--ac-aspdbl) i;
-        }    
+        }        
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-aspdbl) i;
+            background-color: var(--ac-aspdbl);
+            transition: all 0.25s i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-aspdbl2);
+            transition: all 0.25s i;
+        }            
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -496,7 +521,7 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-aspdbl) i;
             border: none;
-        }           
+        }          
     }
     
     else if yt-accentclr==yellw {
@@ -530,8 +555,8 @@ BLUR setting works only in Dark Theme
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
             /*background: var(--ac-yellw) i;*/
             background-color: var(--ac-yellw) i;
-            border-radius: 6px;
-        }
+            border-radius: 6px;            
+        } 
 
         .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
             fill: var(--ac-yellw) i;
@@ -574,8 +599,15 @@ BLUR setting works only in Dark Theme
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-yellw) i;
+            background-color: var(--ac-yellw);
+            transition: all 0.25s i;
         }    
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+            background-color: var(--ac-yellw2);
+            transition: all 0.25s i;
+        }              
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
         .badge-style-type-live-now.ytd-badge-supported-renderer,
@@ -583,7 +615,7 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-yellw) i;
             border: none;
-        }         
+        }           
     }
 
     else if yt-accentclr==nya {
@@ -797,6 +829,10 @@ BLUR setting works only in Dark Theme
         font-weight: 500 i;
     }
 
+    tp-yt-paper-dialog {
+        border-radius: 16px;
+    }      
+    
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
     #description-text.ytd-video-renderer,
     .content.ytd-channel-video-player-renderer,
