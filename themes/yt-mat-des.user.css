@@ -5,20 +5,20 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-stable_fix-5
+@version      0.5.1-stable_fix-6
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
 
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
-@var select yt-timebar "Time Bar" ["stand:Standart", "orng:Orange", "aspdbl:Aspid-Blue", "thinking:Thinkning Emoji", "nya:Nyan Cat"]
+@var select yt-accentclr "Accent Color" ["stand:Standart", "orng:Orange", "aspdbl:Aspid-Blue", "yellw:Yellow", "nya:Nyan Cat"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
 
 ==/UserStyle== */
 
 i = !important
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.1-stable_fix5 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.1-stable_fix6 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -205,7 +205,7 @@ i = !important
     /* ============ STYLUS SETTING // НАСТРОЙКИ STYLUS ============ */
 
     /* TIME BAR // ВРЕМЕННАЯ ШКАЛА */
-    if yt-timebar==orng {
+    if yt-accentclr==orng {
         .html5-scrubber-button:hover,
         .ytp-scrubber-button:hover,
         .ytp-swatch-background-color,
@@ -264,9 +264,21 @@ i = !important
         .video-extras-sparkbar-likes-extras2-disabled {
             background-color: var(--ac-orng) i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer {
+            background-color: var(--ac-orng) i;
+        }
+        
+        .badge-style-type-simple.ytd-badge-supported-renderer,
+        .badge-style-type-live-now.ytd-badge-supported-renderer,
+        .badge-style-type-red.ytd-badge-supported-renderer,
+        #privacy-stats yt-icon.ytd-badge-supported-renderer {
+            background: var(--ac-orng) i;
+            border: none;
+        }          
     }
 
-    else if yt-timebar==aspdbl {
+    else if yt-accentclr==aspdbl {
         .html5-scrubber-button:hover,
         .ytp-scrubber-button:hover,
         .ytp-swatch-background-color,
@@ -325,9 +337,21 @@ i = !important
         .video-extras-sparkbar-likes-extras2-disabled {
             background-color: var(--ac-aspdbl) i;
         }        
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer {
+            background-color: var(--ac-aspdbl) i;
+        }
+        
+        .badge-style-type-simple.ytd-badge-supported-renderer,
+        .badge-style-type-live-now.ytd-badge-supported-renderer,
+        .badge-style-type-red.ytd-badge-supported-renderer,
+        #privacy-stats yt-icon.ytd-badge-supported-renderer {
+            background: var(--ac-aspdbl) i;
+            border: none;
+        }          
     }
     
-    else if yt-timebar==thinking {
+    else if yt-accentclr==yellw {
         .ytp-swatch-background-color {
             background-color: var(--ac-yellw) i;
         }
@@ -398,9 +422,21 @@ i = !important
         .ytp-progress-bar {
             margin-top: 8px i;
         }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer {
+            background-color: var(--ac-yellw) i;
+        }    
+        
+        .badge-style-type-simple.ytd-badge-supported-renderer,
+        .badge-style-type-live-now.ytd-badge-supported-renderer,
+        .badge-style-type-red.ytd-badge-supported-renderer,
+        #privacy-stats yt-icon.ytd-badge-supported-renderer {
+            background: var(--ac-yellw) i;
+            border: none;
+        }            
     }
 
-    else if yt-timebar==nya {
+    else if yt-accentclr==nya {
         .html5-play-progress,
         .ytp-play-progress {
             background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAMCAIAAAAs6UAAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUNCQzIyREQ0QjdEMTFFMzlEMDM4Qzc3MEY0NzdGMDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUNCQzIyREU0QjdEMTFFMzlEMDM4Qzc3MEY0NzdGMDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQ0JDMjJEQjRCN0QxMUUzOUQwMzhDNzcwRjQ3N0YwOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQ0JDMjJEQzRCN0QxMUUzOUQwMzhDNzcwRjQ3N0YwOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PovDFgYAAAAmSURBVHjaYvjPwMAAxjMZmBhA9H8INv4P4TPM/A+m04zBNECAAQBCWQv9SUQpVgAAAABJRU5ErkJggg==") repeat-x !important;
@@ -669,6 +705,11 @@ i = !important
         fill: var(--comment-op-check-color);
     }
 
+    ytd-author-comment-badge-renderer {
+        padding-left: 6px i;
+        padding-right: 6px i;
+    }       
+    
     ytd-guide-entry-renderer[active] {
         /*background-color: var(--sidepanel-menu-active);*/
         border-radius: 0 25px 25px 0;
@@ -1317,7 +1358,9 @@ i = !important
         border-top: 1px solid bd i;
 
         /// Settings -> Add whitespace between sections.
-        /.XfvCs { margin-bottom: 30px i }
+        /.XfvCs { 
+            margin-bottom: 30px i 
+        }
 
         /// Add userstyle information.
         > div::after {
