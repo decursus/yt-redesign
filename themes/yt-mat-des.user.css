@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.1-stable_fix-7
+@version      0.5.2-stable
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -18,7 +18,7 @@
 
 i = !important
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.1-stable_fix7 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.2-stable \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -278,7 +278,8 @@ i = !important
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-orng2);
             transition: all 0.25s i;
         }           
@@ -358,9 +359,10 @@ i = !important
             background-color: var(--ac-blu);
             transition: all 0.25s i;
         }
-        
+                
         tp-yt-paper-button.ytd-subscribe-button-renderer:active, 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-blu2);
             transition: all 0.25s i;
         }        
@@ -442,7 +444,8 @@ i = !important
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-aspdbl2);
             transition: all 0.25s i;
         }            
@@ -536,7 +539,8 @@ i = !important
         }    
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover {
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-yellw2);
             transition: all 0.25s i;
         }              
