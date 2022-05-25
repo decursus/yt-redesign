@@ -5,26 +5,27 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.2-exp
+@version      0.5.2-exp_fix1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
 
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
-@var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "yellw:Yellow", "nya:Nyan Cat"]
+@var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow", "nya:Nyan Cat"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
 @var select yt-blur "Blur (experimental)" ["off:Off", "on:On"]
 
 ==/UserStyle== */
 
 i = !important
+t = transparent
 
 /* 
 BLUR setting works only in Dark Theme
 РАЗМЫТИЕ работает только в тёмной теме
 */
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.2-exp \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.2-exp_fix1 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -61,6 +62,8 @@ BLUR setting works only in Dark Theme
         --ac-yellw2: #c49d3b
         --ac-blu: #00a1e7
         --ac-blu2: #006b99
+        --ac-pnk: #ff2fce
+        --ac-pnk2: #cf24a6
 
         /* Footer */
         --note: note
@@ -219,7 +222,7 @@ BLUR setting works only in Dark Theme
         html[dark] #contentContainer.tp-yt-app-drawer[opened] {
             -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-            background: transparent i;
+            background: t i;
             backdrop-filter: blur(10px) i;
             border-radius: 10px i;
             -webkit-backdrop-filter: blur(10px) i;
@@ -244,7 +247,7 @@ BLUR setting works only in Dark Theme
         html[dark] .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
             border-radius: 10px i;
             backdrop-filter: blur(10px) i;
-            background-color: transparent i;
+            background-color: t i;
         }
 
         html[dark] tp-yt-paper-listbox {
@@ -278,7 +281,22 @@ BLUR setting works only in Dark Theme
     }
 
     /* TIME BAR // ВРЕМЕННАЯ ШКАЛА */
-    if yt-accentclr==orng {
+    if yt-accentclr==stand {
+        tp-yt-paper-button.ytd-subscribe-button-renderer {
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }  
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
+            background-color: #cd2e36;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);            
+        }              
+    }
+    
+    else if yt-accentclr==orng {
         .html5-scrubber-button:hover,
         .ytp-scrubber-button:hover,
         .ytp-swatch-background-color,
@@ -342,14 +360,16 @@ BLUR setting works only in Dark Theme
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
             background-color: var(--ac-orng);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active 
         tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
         tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-orng2);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }           
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
@@ -425,14 +445,16 @@ BLUR setting works only in Dark Theme
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
             background-color: var(--ac-blu);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
                 
         tp-yt-paper-button.ytd-subscribe-button-renderer:active, 
         tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
         tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-blu2);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }        
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
@@ -508,14 +530,19 @@ BLUR setting works only in Dark Theme
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
             background-color: var(--ac-aspdbl);
-            transition: all 0.25s i;
+            /*transition: all 1s ease 0s;*/
+            /*transition: .25s linear .5s;*/
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active 
         tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
         tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-aspdbl2);
-            transition: all 0.25s i;
+            /*transition: .25s linear .5s;*/
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }            
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
@@ -526,6 +553,94 @@ BLUR setting works only in Dark Theme
             border: none;
         }          
     }
+
+    else if yt-accentclr==pnk {
+        .html5-scrubber-button:hover,
+        .ytp-scrubber-button:hover,
+        .ytp-swatch-background-color,
+        .ytp-swatch-background-color-secondary {
+            background: var(--ac-pnk) i;
+        }
+
+        .html5-play-progress,
+        .ytp-play-progress {
+            background: var(--ac-pnk) i;
+        }
+
+        .ytp-volume-slider-track,
+        .ytp-volume-slider-handle:before {
+            background: var(--ac-pnk) i;
+            z-index: -117;
+        }
+
+        .ytp-settings-button.ytp-hd-quality-badge::after,
+        .ytp-settings-button.ytp-4k-quality-badge::after,
+        .ytp-settings-button.ytp-5k-quality-badge::after,
+        .ytp-settings-button.ytp-8k-quality-badge::after,
+        .ytp-settings-button.ytp-3d-badge::after {
+            background-color: var(--ac-pnk) i;
+        }
+
+        .ytp-swatch-color {
+            color: var(--ac-pnk) i;
+        }
+
+        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+            /*background: var(--ac-pnk) i;*/
+            background-color: var(--ac-pnk) i;
+            border-radius: 6px;
+        }
+
+        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
+            fill: var(--ac-pnk) i;
+        }
+
+        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
+        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
+            fill: var(--ac-pnk) i;
+        }
+
+        .resume-playback-progress-bar {
+            background: var(--ac-pnk) i;
+        }
+
+        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+            background-color: var(--ac-pnk) i;
+        }
+
+        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
+            background-color: var(--ac-pnk) i;
+        }
+
+        .video-extras-sparkbar-likes-extras2-disabled {
+            background-color: var(--ac-pnk) i;
+        }        
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer {
+            background-color: var(--ac-pnk);
+            /*transition: all 1s ease 0s;*/
+            /*transition: .25s linear .5s;*/
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
+            background-color: var(--ac-pnk2);
+            /*transition: .25s linear .5s;*/
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        }            
+        
+        .badge-style-type-simple.ytd-badge-supported-renderer,
+        .badge-style-type-live-now.ytd-badge-supported-renderer,
+        .badge-style-type-red.ytd-badge-supported-renderer,
+        #privacy-stats yt-icon.ytd-badge-supported-renderer {
+            background: var(--ac-pnk) i;
+            border: none;
+        }          
+    }       
     
     else if yt-accentclr==yellw {
         .ytp-swatch-background-color {
@@ -603,14 +718,16 @@ BLUR setting works only in Dark Theme
         
         tp-yt-paper-button.ytd-subscribe-button-renderer {
             background-color: var(--ac-yellw);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
         }    
         
         tp-yt-paper-button.ytd-subscribe-button-renderer:active
         tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
         tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
             background-color: var(--ac-yellw2);
-            transition: all 0.25s i;
+            transition: all 1s i;
+            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
         }              
         
         .badge-style-type-simple.ytd-badge-supported-renderer,
@@ -972,11 +1089,11 @@ BLUR setting works only in Dark Theme
     }
 
     tp-yt-paper-button.ytd-subscribe-button-renderer {
-        border-radius: 12px;
+        border-radius: 8px i;
     }
     
     tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
-        border-radius: 12px i;
+        border-radius: 8px i;
     }    
 
     /* ============ POPUP // ВСПЛЫВАЮЩИЕ ОКНА ============ */
@@ -1044,7 +1161,7 @@ BLUR setting works only in Dark Theme
 
     html[dark] yt-notification-action-renderer {
         backdrop-filter: blur(10px) i;
-        background-color: transparent i;
+        background-color: t i;
     }
 
     tp-yt-app-drawer.ytd-app[persistent] {
@@ -1072,8 +1189,8 @@ BLUR setting works only in Dark Theme
     /* ============ MINIPLAYER // МИНИПРОИГРЫВАТЕЛЬ ============ */
     ytd-miniplayer.style-scope.ytd-app {
         margin-right: 10px i;
-        background: transparent i;
-        box-shadow: transparent i;
+        background: t i;
+        box-shadow: t i;
     }
 
     html[dark] #info-bar.ytd-miniplayer {
@@ -1142,7 +1259,7 @@ BLUR setting works only in Dark Theme
     html[dark] .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px i;
         backdrop-filter: blur(10px) i;
-        background-color: transparent i;
+        background-color: t i;
     }
 
     html[dark] tp-yt-paper-listbox {
@@ -1163,7 +1280,7 @@ BLUR setting works only in Dark Theme
     
     .ytp-exp-ppp-update .ytp-paid-content-overlay-link {
         border-radius: 10px i;
-        background-color: transparent i;
+        background-color: t i;
     }
 
     tp-yt-iron-overlay-backdrop.opened {
@@ -1171,7 +1288,7 @@ BLUR setting works only in Dark Theme
     }
 
     #guide-content.ytd-app {
-        background: transparent i;
+        background: t i;
     }
 
     .html5-video-player.ytp-inline-preview-mode:not(.ended-mode):not(.cued-mode):not(.unstarted-mode) {
@@ -1226,7 +1343,7 @@ BLUR setting works only in Dark Theme
     #search-icon-legacy.ytd-searchbox,
     #container.ytd-searchbox {
         border: none;
-        background: transparent i;
+        background: t i;
     }
 
     #container.ytd-searchbox input.ytd-searchbox::placeholder,
@@ -1360,11 +1477,11 @@ BLUR setting works only in Dark Theme
         background: rgba(50, 50, 50, 0.50) i;
         backdrop-filter: blur(5px) i;
         -webkit-backdrop-filter: blur(5px) i;
-        padding-left: 10px i;
+        /*padding-left: 10px i;
         margin-bottom: 6px i;
         border-radius: 0px 0px 10px 10px i;
         margin-right: 6px i;
-        margin-left: 6px i;
+        margin-left: 6px i;*/
     }
 
     ytd-thumbnail-overlay-time-status-renderer,
@@ -1541,11 +1658,6 @@ BLUR setting works only in Dark Theme
         margin: 0 auto i;
         max-width: 935px i;
         border-top: 1px solid bd i;
-
-        /* Add whitespace between sections. */
-        /.XfvCs { 
-            margin-bottom: 30px i 
-        }
 
         /* Add userstyle information. */
         > div::after {
