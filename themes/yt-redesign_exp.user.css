@@ -293,7 +293,11 @@ BLUR setting works only in Dark Theme
             background-color: #cd2e36;
             transition: all 1s i;
             transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);            
-        }              
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--yt-spec-text-secondary);
+        }
     }
     
     else if yt-accentclr==orng {
@@ -378,7 +382,11 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-orng) i;
             border: none;
-        }          
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--ac-orng);
+        }        
     }
 
     else if yt-accentclr==blu {
@@ -463,7 +471,11 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-blu) i;
             border: none;
-        }          
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--ac-blu);
+        }     
     }    
     
     else if yt-accentclr==aspdbl {
@@ -551,9 +563,13 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-aspdbl) i;
             border: none;
-        }          
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--ac-aspdbl);
+        } 
     }
-
+    
     else if yt-accentclr==pnk {
         .html5-scrubber-button:hover,
         .ytp-scrubber-button:hover,
@@ -639,8 +655,12 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-pnk) i;
             border: none;
-        }          
-    }       
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--ac-pnk);
+        } 
+    }    
     
     else if yt-accentclr==yellw {
         .ytp-swatch-background-color {
@@ -736,7 +756,11 @@ BLUR setting works only in Dark Theme
         #privacy-stats yt-icon.ytd-badge-supported-renderer {
             background: var(--ac-yellw) i;
             border: none;
-        }           
+        }
+        
+        #country-code.ytd-topbar-logo-renderer {
+            color: var(--ac-yellw);
+        } 
     }
 
     else if yt-accentclr==nya {
@@ -1059,6 +1083,10 @@ BLUR setting works only in Dark Theme
     ytd-app {
         --app-drawer-width: 246px i;
     }
+    
+    #container.ytd-searchbox > [slot=search-input] input::selection {
+        background: rgba(76, 125, 225, 0.18);
+    }    
     
     /* ============ PLAYER/PLATE/BUTTON ROUNDINGS // СКРУГЛЕНИЯ ПЛЕЕРА/ПЛАШЕК/КНОПОК ============ */
     ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
