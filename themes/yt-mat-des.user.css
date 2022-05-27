@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.5-stable
+@version      0.5.5-stable_fix-1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -20,7 +20,7 @@ i = !important
 t = transparent
 
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.5-stable \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.5-stable_fix-1 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -239,27 +239,8 @@ t = transparent
 
     /* ============ STYLUS SETTING // НАСТРОЙКИ STYLUS ============ */
 
-    /* ACCENT COLORS // АКЦЕНТИРУЮЩИЕ ЦВЕТА */
-    if yt-accentclr==stand {
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }  
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-main);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);            
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--yt-spec-text-secondary);
-        }
-    }
-  
-    else if yt-accentclr==yellw {
+    /* ACCENT COLORS // АКЦЕНТИРУЮЩИЕ ЦВЕТА */  
+    if yt-accentclr==yellw {
         .ytp-swatch-background-color {
             background-color: var(--ac-yellw) i;
         }
@@ -420,7 +401,13 @@ t = transparent
     }
 
     #country-code.ytd-topbar-logo-renderer {
-        color: var(--ac-main);
+        if yt-accentclr==stand {
+            color: var(--yt-spec-text-secondary) i;
+        }
+        
+        else {
+            color: var(--ac-main);
+        }
     }
 
     /* WATCHED BADGE // "МЕТКА ПРОСМОТРЕНО" */
