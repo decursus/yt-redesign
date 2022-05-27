@@ -5,13 +5,13 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.2-exp_fix1
+@version      0.5.5-exp
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
 
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
-@var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow", "nya:Nyan Cat"]
+@var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
 @var select yt-blur "Blur (experimental)" ["off:Off", "on:On"]
 
@@ -25,7 +25,7 @@ BLUR setting works only in Dark Theme
 РАЗМЫТИЕ работает только в тёмной теме
 */
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.2-exp_fix1 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.5-exp \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -54,16 +54,36 @@ BLUR setting works only in Dark Theme
         --pv-pink: #ee5ddc;
         --pv-violet: #a953d5;
         /* Accent Color // Актентирующий цвет */
-        --ac-aspdbl: #7F5AF0
-        --ac-aspdbl2: #5b40ad
-        --ac-orng: #e08517
-        --ac-orng2: #a66211
-        --ac-yellw: #ffcc4d
-        --ac-yellw2: #c49d3b
-        --ac-blu: #00a1e7
-        --ac-blu2: #006b99
-        --ac-pnk: #ff2fce
-        --ac-pnk2: #cf24a6
+        if yt-accentclr==stand {
+            --ac-main:#cd2e36
+        }
+        
+        else if yt-accentclr==blu {
+            --ac-main: #00a1e7
+            --ac-main2: #006b99            
+        }
+        
+        else if yt-accentclr==aspdbl {
+            --ac-main: #7F5AF0
+            --ac-main2: #5b40ad            
+        }
+        
+        else if yt-accentclr==orng {
+            --ac-main: #e08517
+            --ac-main2: #a66211            
+        }
+
+        else if yt-accentclr==pnk {
+            --ac-main: #ff2fce
+            --ac-main2: #cf24a6            
+        }
+        
+        else if yt-accentclr==yellw {
+            --ac-yellw: #ffcc4d
+            --ac-yellw2: #c49d3b
+            --ac-main: #ffcc4d
+            --ac-main2: #c49d3b            
+        }
 
         /* Footer */
         --note: note
@@ -280,7 +300,7 @@ BLUR setting works only in Dark Theme
         }
     }
 
-    /* TIME BAR // ВРЕМЕННАЯ ШКАЛА */
+    /* ACCENT COLORS // АКЦЕНТИРУЮЩИЕ ЦВЕТА */
     if yt-accentclr==stand {
         tp-yt-paper-button.ytd-subscribe-button-renderer {
             transition: all 1s i;
@@ -290,7 +310,7 @@ BLUR setting works only in Dark Theme
         tp-yt-paper-button.ytd-subscribe-button-renderer:active
         tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
         tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: #cd2e36;
+            background-color: var(--ac-main);
             transition: all 1s i;
             transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);            
         }
@@ -299,369 +319,7 @@ BLUR setting works only in Dark Theme
             color: var(--yt-spec-text-secondary);
         }
     }
-    
-    else if yt-accentclr==orng {
-        .html5-scrubber-button:hover,
-        .ytp-scrubber-button:hover,
-        .ytp-swatch-background-color,
-        .ytp-swatch-background-color-secondary {
-            background: var(--ac-orng) i;
-        }
-
-        .html5-play-progress,
-        .ytp-play-progress {
-            background: var(--ac-orng) i;
-        }
-
-        .ytp-volume-slider-track,
-        .ytp-volume-slider-handle:before {
-            background: var(--ac-orng) i;
-            z-index: -117;
-        }
-
-        .ytp-settings-button.ytp-hd-quality-badge::after,
-        .ytp-settings-button.ytp-4k-quality-badge::after,
-        .ytp-settings-button.ytp-5k-quality-badge::after,
-        .ytp-settings-button.ytp-8k-quality-badge::after,
-        .ytp-settings-button.ytp-3d-badge::after {
-            background-color: var(--ac-orng) i;
-        }
-
-        .ytp-swatch-color {
-            color: var(--ac-orng) i;
-        }
-
-        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            /*background: var(--ac-orng) i;*/
-            background-color: var(--ac-orng) i;
-            border-radius: 6px;            
-        }
-
-        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
-            fill: var(--ac-orng) i;
-        }
-
-        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
-        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
-            fill: var(--ac-orng) i;
-        }
-
-        .resume-playback-progress-bar {
-            background: var(--ac-orng) i;
-        }
-
-        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
-            background-color: var(--ac-orng) i;
-        }
-
-        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
-            background-color: var(--ac-orng) i;
-        }
-
-        .video-extras-sparkbar-likes-extras2-disabled {
-            background-color: var(--ac-orng) i;
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-orng);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-orng2);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-        }           
-        
-        .badge-style-type-simple.ytd-badge-supported-renderer,
-        .badge-style-type-live-now.ytd-badge-supported-renderer,
-        .badge-style-type-red.ytd-badge-supported-renderer,
-        #privacy-stats yt-icon.ytd-badge-supported-renderer {
-            background: var(--ac-orng) i;
-            border: none;
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--ac-orng);
-        }        
-    }
-
-    else if yt-accentclr==blu {
-        .html5-scrubber-button:hover,
-        .ytp-scrubber-button:hover,
-        .ytp-swatch-background-color,
-        .ytp-swatch-background-color-secondary {
-            background: var(--ac-blu) i;
-        }
-
-        .html5-play-progress,
-        .ytp-play-progress {
-            background: var(--ac-blu) i;
-        }
-
-        .ytp-volume-slider-track,
-        .ytp-volume-slider-handle:before {
-            background: var(--ac-blu) i;
-            z-index: -117;
-        }
-
-        .ytp-settings-button.ytp-hd-quality-badge::after,
-        .ytp-settings-button.ytp-4k-quality-badge::after,
-        .ytp-settings-button.ytp-5k-quality-badge::after,
-        .ytp-settings-button.ytp-8k-quality-badge::after,
-        .ytp-settings-button.ytp-3d-badge::after {
-            background-color: var(--ac-blu) i;
-        }
-
-        .ytp-swatch-color {
-            color: var(--ac-blu) i;
-        }
-
-        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            /*background: var(--ac-blu) i;*/
-            background-color: var(--ac-blu) i;
-            border-radius: 6px;            
-        }
-
-        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
-            fill: var(--ac-blu) i;
-        }
-
-        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
-        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
-            fill: var(--ac-blu) i;
-        }
-
-        .resume-playback-progress-bar {
-            background: var(--ac-blu) i;
-        }
-
-        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
-            background-color: var(--ac-blu) i;
-        }
-
-        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
-            background-color: var(--ac-blu) i;
-        }
-
-        .video-extras-sparkbar-likes-extras2-disabled {
-            background-color: var(--ac-blu) i;
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-blu);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-                
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active, 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-blu2);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-        }        
-        
-        .badge-style-type-simple.ytd-badge-supported-renderer,
-        .badge-style-type-live-now.ytd-badge-supported-renderer,
-        .badge-style-type-red.ytd-badge-supported-renderer,
-        #privacy-stats yt-icon.ytd-badge-supported-renderer {
-            background: var(--ac-blu) i;
-            border: none;
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--ac-blu);
-        }     
-    }    
-    
-    else if yt-accentclr==aspdbl {
-        .html5-scrubber-button:hover,
-        .ytp-scrubber-button:hover,
-        .ytp-swatch-background-color,
-        .ytp-swatch-background-color-secondary {
-            background: var(--ac-aspdbl) i;
-        }
-
-        .html5-play-progress,
-        .ytp-play-progress {
-            background: var(--ac-aspdbl) i;
-        }
-
-        .ytp-volume-slider-track,
-        .ytp-volume-slider-handle:before {
-            background: var(--ac-aspdbl) i;
-            z-index: -117;
-        }
-
-        .ytp-settings-button.ytp-hd-quality-badge::after,
-        .ytp-settings-button.ytp-4k-quality-badge::after,
-        .ytp-settings-button.ytp-5k-quality-badge::after,
-        .ytp-settings-button.ytp-8k-quality-badge::after,
-        .ytp-settings-button.ytp-3d-badge::after {
-            background-color: var(--ac-aspdbl) i;
-        }
-
-        .ytp-swatch-color {
-            color: var(--ac-aspdbl) i;
-        }
-
-        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            /*background: var(--ac-aspdbl) i;*/
-            background-color: var(--ac-aspdbl) i;
-            border-radius: 6px;
-        }
-
-        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
-            fill: var(--ac-aspdbl) i;
-        }
-
-        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
-        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
-            fill: var(--ac-aspdbl) i;
-        }
-
-        .resume-playback-progress-bar {
-            background: var(--ac-aspdbl) i;
-        }
-
-        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
-            background-color: var(--ac-aspdbl) i;
-        }
-
-        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
-            background-color: var(--ac-aspdbl) i;
-        }
-
-        .video-extras-sparkbar-likes-extras2-disabled {
-            background-color: var(--ac-aspdbl) i;
-        }        
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-aspdbl);
-            /*transition: all 1s ease 0s;*/
-            /*transition: .25s linear .5s;*/
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-aspdbl2);
-            /*transition: .25s linear .5s;*/
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-        }            
-        
-        .badge-style-type-simple.ytd-badge-supported-renderer,
-        .badge-style-type-live-now.ytd-badge-supported-renderer,
-        .badge-style-type-red.ytd-badge-supported-renderer,
-        #privacy-stats yt-icon.ytd-badge-supported-renderer {
-            background: var(--ac-aspdbl) i;
-            border: none;
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--ac-aspdbl);
-        } 
-    }
-    
-    else if yt-accentclr==pnk {
-        .html5-scrubber-button:hover,
-        .ytp-scrubber-button:hover,
-        .ytp-swatch-background-color,
-        .ytp-swatch-background-color-secondary {
-            background: var(--ac-pnk) i;
-        }
-
-        .html5-play-progress,
-        .ytp-play-progress {
-            background: var(--ac-pnk) i;
-        }
-
-        .ytp-volume-slider-track,
-        .ytp-volume-slider-handle:before {
-            background: var(--ac-pnk) i;
-            z-index: -117;
-        }
-
-        .ytp-settings-button.ytp-hd-quality-badge::after,
-        .ytp-settings-button.ytp-4k-quality-badge::after,
-        .ytp-settings-button.ytp-5k-quality-badge::after,
-        .ytp-settings-button.ytp-8k-quality-badge::after,
-        .ytp-settings-button.ytp-3d-badge::after {
-            background-color: var(--ac-pnk) i;
-        }
-
-        .ytp-swatch-color {
-            color: var(--ac-pnk) i;
-        }
-
-        .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            /*background: var(--ac-pnk) i;*/
-            background-color: var(--ac-pnk) i;
-            border-radius: 6px;
-        }
-
-        .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
-            fill: var(--ac-pnk) i;
-        }
-
-        .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
-        .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
-            fill: var(--ac-pnk) i;
-        }
-
-        .resume-playback-progress-bar {
-            background: var(--ac-pnk) i;
-        }
-
-        .ytp-chrome-controls .ytp-button[aria-pressed]::after {
-            background-color: var(--ac-pnk) i;
-        }
-
-        .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
-            background-color: var(--ac-pnk) i;
-        }
-
-        .video-extras-sparkbar-likes-extras2-disabled {
-            background-color: var(--ac-pnk) i;
-        }        
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-pnk);
-            /*transition: all 1s ease 0s;*/
-            /*transition: .25s linear .5s;*/
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active 
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-pnk2);
-            /*transition: .25s linear .5s;*/
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-        }            
-        
-        .badge-style-type-simple.ytd-badge-supported-renderer,
-        .badge-style-type-live-now.ytd-badge-supported-renderer,
-        .badge-style-type-red.ytd-badge-supported-renderer,
-        #privacy-stats yt-icon.ytd-badge-supported-renderer {
-            background: var(--ac-pnk) i;
-            border: none;
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--ac-pnk);
-        } 
-    }    
-    
+  
     else if yt-accentclr==yellw {
         .ytp-swatch-background-color {
             background-color: var(--ac-yellw) i;
@@ -720,9 +378,24 @@ BLUR setting works only in Dark Theme
         .video-extras-sparkbar-likes-extras2-disabled {
             background-color: var(--ac-yellw) i;
         }        
-        
-        .ytp-scrubber-button {
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGNpcmNsZSBmaWxsPSIjRkZDQjRDIiBjeD0iMTgiIGN5PSIxNy4wMTgiIHI9IjE3Ii8+PHBhdGggZmlsbD0iIzY1NDcxQiIgZD0iTTE0LjUyNCAyMS4wMzZjLS4xNDUtLjExNi0uMjU4LS4yNzQtLjMxMi0uNDY0LS4xMzQtLjQ2LjEzLS45MTguNTktMS4wMjEgNC41MjgtMS4wMjEgNy41NzcgMS4zNjMgNy43MDYgMS40NjUuMzg0LjMwNi40NTkuODQ1LjE3MyAxLjIwNS0uMjg2LjM1OC0uODI4LjQwMS0xLjIxMS4wOTctLjExLS4wODQtMi41MjMtMS45MjMtNi4xODItMS4wOTgtLjI3NC4wNjEtLjU1NC0uMDE2LS43NjQtLjE4NHoiLz48ZWxsaXBzZSBmaWxsPSIjNjU0NzFCIiBjeD0iMTMuMTE5IiBjeT0iMTEuMTc0IiByeD0iMi4xMjUiIHJ5PSIyLjY1NiIvPjxlbGxpcHNlIGZpbGw9IiM2NTQ3MUIiIGN4PSIyNC4zNzUiIGN5PSIxMi4yMzYiIHJ4PSIyLjEyNSIgcnk9IjIuNjU2Ii8+PHBhdGggZmlsbD0iI0YxOTAyMCIgZD0iTTE3LjI3NiAzNS4xNDlzMS4yNjUtLjQxMSAxLjQyOS0xLjM1MmMuMTczLS45NzItLjYyNC0xLjE2Ny0uNjI0LTEuMTY3czEuMDQxLS4yMDggMS4xNzItMS4zNzZjLjEyMy0xLjEwMS0uODYxLTEuMzYzLS44NjEtMS4zNjNzLjk3LS40IDEuMDE2LTEuNTM5Yy4wMzgtLjk1OS0uOTk1LTEuNDI4LS45OTUtMS40MjhzNS4wMzgtMS4yMjEgNS41NTYtMS4zNDFjLjUxNi0uMTIgMS4zMi0uNjE1IDEuMDY5LTEuNjk0LS4yNDktMS4wOC0xLjIwNC0xLjExOC0xLjY5Ny0xLjAwMy0uNDk0LjExNS02Ljc0NCAxLjU2Ni04LjkgMi4wNjhsLTEuNDM5LjMzNGMtLjU0LjEyNy0uNzg1LS4xMS0uNDA0LS41MTIuNTA4LS41MzYuODMzLTEuMTI5Ljk0Ni0yLjExMy4xMTktMS4wMzUtLjIzMi0yLjMxMy0uNDMzLTIuODA5LS4zNzQtLjkyMS0xLjAwNS0xLjY0OS0xLjczNC0xLjg5OS0xLjEzNy0uMzktMS45NDUuMzIxLTEuNTQyIDEuNTYxLjYwNCAxLjg1NC4yMDggMy4zNzUtLjgzMyA0LjI5My0yLjQ0OSAyLjE1Ny0zLjU4OCAzLjY5NS0yLjgzIDYuOTczLjgyOCAzLjU3NSA0LjM3NyA1Ljg3NiA3Ljk1MiA1LjA0OGwzLjE1Mi0uNjgxeiIvPjxwYXRoIGZpbGw9IiM2NTQ3MUIiIGQ9Ik05LjI5NiA2LjM1MWMtLjE2NC0uMDg4LS4zMDMtLjIyNC0uMzkxLS4zOTktLjIxNi0uNDI4LS4wNC0uOTI3LjM5My0xLjExMiA0LjI2Ni0xLjgzMSA3LjY5OS0uMDQzIDcuODQzLjAzNC40MzMuMjMxLjYwOC43NDcuMzkxIDEuMTU0LS4yMTYuNDA1LS43NC41NDYtMS4xNzMuMzE4LS4xMjMtLjA2My0yLjgzMi0xLjQzMi02LjI3OC4wNDctLjI1Ny4xMDktLjU0Ny4wODUtLjc4NS0uMDQyem0xMi4xMzUgMy43NWMtLjE1Ni0uMDk4LS4yODYtLjI0My0uMzYyLS40MjQtLjE4Ny0uNDQyLjAyMy0uOTI3LjQ2OC0xLjA4NCA0LjM4MS0xLjUzNiA3LjY4NS40OCA3LjgyMy41NjcuNDE1LjI2LjU1NS43ODcuMzEyIDEuMTc4LS4yNDIuMzktLjc3Ni40OTUtMS4xOTEuMjM4LS4xMi0uMDcyLTIuNzI3LTEuNjIxLTYuMjY3LS4zNzktLjI2Ni4wOTEtLjU1My4wNDYtLjc4My0uMDk2eiIvPjwvc3ZnPg==");
+
+        .html5-progress-bar,
+        .ytp-progress-bar {
+            margin-top: 8px i;
+        }
+    }
+
+    .html5-scrubber-button:hover,
+    .ytp-scrubber-button:hover,
+    .ytp-swatch-background-color,
+    .ytp-swatch-background-color-secondary {
+        background: var(--ac-main) i;
+    }
+    
+    .html5-scrubber-button,
+    .ytp-scrubber-button {
+        if yt-accentclr==yellw {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGNpcmNsZSBmaWxsPSIjRkZDQjRDIiBjeD0iMTgiIGN5PSIxNy4wMTgiIHI9IjE3Ii8+PHBhdGggZmlsbD0iIzY1NDcxQiIgZD0iTTE0LjUyNCAyMS4wMzZjLS4xNDUtLjExNi0uMjU4LS4yNzQtLjMxMi0uNDY0LS4xMzQtLjQ2LjEzLS45MTguNTktMS4wMjEgNC41MjgtMS4wMjEgNy41NzcgMS4zNjMgNy43MDYgMS40NjUuMzg0LjMwNi40NTkuODQ1LjE3MyAxLjIwNS0uMjg2LjM1OC0uODI4LjQwMS0xLjIxMS4wOTctLjExLS4wODQtMi41MjMtMS45MjMtNi4xODItMS4wOTgtLjI3NC4wNjEtLjU1NC0uMDE2LS43NjQtLjE4NHoiLz48ZWxsaXBzZSBmaWxsPSIjNjU0NzFCIiBjeD0iMTMuMTE5IiBjeT0iMTEuMTc0IiByeD0iMi4xMjUiIHJ5PSIyLjY1NiIvPjxlbGxpcHNlIGZpbGw9IiM2NTQ3MUIiIGN4PSIyNC4zNzUiIGN5PSIxMi4yMzYiIHJ4PSIyLjEyNSIgcnk9IjIuNjU2Ii8+PHBhdGggZmlsbD0iI0YxOTAyMCIgZD0iTTE3LjI3NiAzNS4xNDlzMS4yNjUtLjQxMSAxLjQyOS0xLjM1MmMuMTczLS45NzItLjYyNC0xLjE2Ny0uNjI0LTEuMTY3czEuMDQxLS4yMDggMS4xNzItMS4zNzZjLjEyMy0xLjEwMS0uODYxLTEuMzYzLS44NjEtMS4zNjNzLjk3LS40IDEuMDE2LTEuNTM5Yy4wMzgtLjk1OS0uOTk1LTEuNDI4LS45OTUtMS40MjhzNS4wMzgtMS4yMjEgNS41NTYtMS4zNDFjLjUxNi0uMTIgMS4zMi0uNjE1IDEuMDY5LTEuNjk0LS4yNDktMS4wOC0xLjIwNC0xLjExOC0xLjY5Ny0xLjAwMy0uNDk0LjExNS02Ljc0NCAxLjU2Ni04LjkgMi4wNjhsLTEuNDM5LjMzNGMtLjU0LjEyNy0uNzg1LS4xMS0uNDA0LS41MTIuNTA4LS41MzYuODMzLTEuMTI5Ljk0Ni0yLjExMy4xMTktMS4wMzUtLjIzMi0yLjMxMy0uNDMzLTIuODA5LS4zNzQtLjkyMS0xLjAwNS0xLjY0OS0xLjczNC0xLjg5OS0xLjEzNy0uMzktMS45NDUuMzIxLTEuNTQyIDEuNTYxLjYwNCAxLjg1NC4yMDggMy4zNzUtLjgzMyA0LjI5My0yLjQ0OSAyLjE1Ny0zLjU4OCAzLjY5NS0yLjgzIDYuOTczLjgyOCAzLjU3NSA0LjM3NyA1Ljg3NiA3Ljk1MiA1LjA0OGwzLjE1Mi0uNjgxeiIvPjxwYXRoIGZpbGw9IiM2NTQ3MUIiIGQ9Ik05LjI5NiA2LjM1MWMtLjE2NC0uMDg4LS4zMDMtLjIyNC0uMzkxLS4zOTktLjIxNi0uNDI4LS4wNC0uOTI3LjM5My0xLjExMiA0LjI2Ni0xLjgzMSA3LjY5OS0uMDQzIDcuODQzLjAzNC40MzMuMjMxLjYwOC43NDcuMzkxIDEuMTU0LS4yMTYuNDA1LS43NC41NDYtMS4xNzMuMzE4LS4xMjMtLjA2My0yLjgzMi0xLjQzMi02LjI3OC4wNDctLjI1Ny4xMDktLjU0Ny4wODUtLjc4NS0uMDQyem0xMi4xMzUgMy43NWMtLjE1Ni0uMDk4LS4yODYtLjI0My0uMzYyLS40MjQtLjE4Ny0uNDQyLjAyMy0uOTI3LjQ2OC0xLjA4NCA0LjM4MS0xLjUzNiA3LjY4NS40OCA3LjgyMy41NjcuNDE1LjI2LjU1NS43ODcuMzEyIDEuMTc4LS4yNDIuMzktLjc3Ni40OTUtMS4xOTEuMjM4LS4xMi0uMDcyLTIuNzI3LTEuNjIxLTYuMjY3LS4zNzktLjI2Ni4wOTEtLjU1My4wNDYtLjc4My0uMDk2eiIvPjwvc3ZnPg==") i;
             width: 20px i;
             height: 20px i;
             border: none i;
@@ -730,92 +403,86 @@ BLUR setting works only in Dark Theme
             margin-left: -2px i;
             margin-top: -4px i;
         }
-
-        .html5-progress-bar,
-        .ytp-progress-bar {
-            margin-top: 8px i;
-        }
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            background-color: var(--ac-yellw);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }    
-        
-        tp-yt-paper-button.ytd-subscribe-button-renderer:active
-        tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
-        tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
-            background-color: var(--ac-yellw2);
-            transition: all 1s i;
-            transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-        }              
-        
-        .badge-style-type-simple.ytd-badge-supported-renderer,
-        .badge-style-type-live-now.ytd-badge-supported-renderer,
-        .badge-style-type-red.ytd-badge-supported-renderer,
-        #privacy-stats yt-icon.ytd-badge-supported-renderer {
-            background: var(--ac-yellw) i;
-            border: none;
-        }
-        
-        #country-code.ytd-topbar-logo-renderer {
-            color: var(--ac-yellw);
-        } 
+    }
+    
+    .html5-play-progress,
+    .ytp-play-progress {
+        background: var(--ac-main) i;
     }
 
-    else if yt-accentclr==nya {
-        .html5-play-progress,
-        .ytp-play-progress {
-            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAMCAIAAAAs6UAAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUNCQzIyREQ0QjdEMTFFMzlEMDM4Qzc3MEY0NzdGMDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUNCQzIyREU0QjdEMTFFMzlEMDM4Qzc3MEY0NzdGMDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQ0JDMjJEQjRCN0QxMUUzOUQwMzhDNzcwRjQ3N0YwOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQ0JDMjJEQzRCN0QxMUUzOUQwMzhDNzcwRjQ3N0YwOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PovDFgYAAAAmSURBVHjaYvjPwMAAxjMZmBhA9H8INv4P4TPM/A+m04zBNECAAQBCWQv9SUQpVgAAAABJRU5ErkJggg==") repeat-x !important;
-            background: linear-gradient(to bottom, #FF0000 0%, #FF0000 16.5%, #FF9900 16.5%, #FF9900 33%, #FFFF00 33%, #FFFF00 50%, #33FF00 50%, #33FF00 66%, #0099FF 66%, #0099FF 83.5%, #6633ff 83.5%, #6633ff 100%) i;
-            background: -webkit-linear-gradient(top, #FF0000 0%, #FF0000 16.5%, #FF9900 16.5%, #FF9900 33%, #FFFF00 33%, #FFFF00 50%, #33FF00 50%, #33FF00 66%, #0099FF 66%, #0099FF 83.5%, #6633ff 83.5%, #6633ff 100%) i;
-            background: -moz-linear-gradient(top, #FF0000 0%, #FF0000 16.5%, #FF9900 16.5%, #FF9900 33%, #FFFF00 33%, #FFFF00 50%, #33FF00 50%, #33FF00 66%, #0099FF 66%, #0099FF 83.5%, #6633ff 83.5%, #6633ff 100%) i;
-        }
+    .ytp-volume-slider-track,
+    .ytp-volume-slider-handle:before {
+        background: var(--ac-main) i;
+        z-index: -117;
+    }
 
-        .html5-load-progress,
-        .ytp-load-progress {
-            background: url("data:image/gif;base64,R0lGODlhMAAMAIAAAAxBd////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQECgAAACwAAAAAMAAMAAACJYSPqcvtD6MKstpLr24Z9A2GYvJ544mhXQmxoesElIyCcB3dRgEAIfkEBAoAAAAsAQACAC0ACgAAAiGEj6nLHG0enNQdWbPefOHYhSLydVhJoSYXPO04qrAmJwUAIfkEBAoAAAAsBQABACkACwAAAiGEj6nLwQ8jcC5ViW3evHt1GaE0flxpphn6BNTEqvI8dQUAIfkEBAoAAAAsAQABACoACwAAAiGEj6nLwQ+jcU5VidPNvPtvad0GfmSJeicUUECbxnK0RgUAIfkEBAoAAAAsAAAAACcADAAAAiCEj6mbwQ+ji5QGd6t+c/v2hZzYiVpXmuoKIikLm6hXAAAh+QQECgAAACwAAAAALQAMAAACI4SPqQvBD6NysloTXL480g4uX0iW1Wg21oem7ismLUy/LFwAACH5BAQKAAAALAkAAAAkAAwAAAIghI8Joe0Po0yBWTaz3g/z7UXhMX7kYmplmo0rC8cyUgAAIfkEBAoAAAAsBQAAACUACgAAAh2Ejwmh7Q+jbIFZNrPeEXPudU74IVa5kSiYqOtRAAAh+QQECgAAACwEAAAAIgAKAAACHISPELfpD6OcqTGKs4bWRp+B36YFi0mGaVmtWQEAIfkEBAoAAAAsAAAAACMACgAAAh2EjxC36Q+jnK8xirOW1kavgd+2BYtJhmnpiGtUAAAh+QQECgAAACwAAAAALgALAAACIYSPqcvtD+MKicqLn82c7e6BIhZQ5jem6oVKbfdqQLzKBQAh+QQECgAAACwCAAIALAAJAAACHQx+hsvtD2OStDplKc68r2CEm0eW5uSN6aqe1lgAADs=") i;
-        }
+    .ytp-settings-button.ytp-hd-quality-badge::after,
+    .ytp-settings-button.ytp-4k-quality-badge::after,
+    .ytp-settings-button.ytp-5k-quality-badge::after,
+    .ytp-settings-button.ytp-8k-quality-badge::after,
+    .ytp-settings-button.ytp-3d-badge::after {
+        background-color: var(--ac-main) i;
+    }
 
-        .html5-scrubber-button,
-        .ytp-scrubber-button {
-            background: url("data:image/gif;base64,R0lGODlhIgAVAKIHAL3/9/+Zmf8zmf/MmZmZmf+Z/wAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpDMkJBNjY5RTU1NEJFMzExOUM4QUM2MDAwNDQzRERBQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCREIzOEIzMzRCN0IxMUUzODhEQjgwOTYzMTgyNTE0QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCREIzOEIzMjRCN0IxMUUzODhEQjgwOTYzMTgyNTE0QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkM1QkE2NjlFNTU0QkUzMTE5QzhBQzYwMDA0NDNEREFDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkMyQkE2NjlFNTU0QkUzMTE5QzhBQzYwMDA0NDNEREFDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8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") i;
-            width: 34px i;
-            height: 21px i;
-            border: none i;
-            margin-left: -18px i;
-            margin-top: 0px i;
-            transform: scale(0.8);
-            -webkit-transform: scale(0.8);
-            -moz-transform: scale(0.8);
-            -ms-transform: scale(0.8);
-        }
+    .ytp-swatch-color {
+        color: var(--ac-main) i;
+    }
 
-        .ytp-progress-bar-container:hover .ytp-scrubber-button,
-        .ytp-progress-bar-container:hover .ytp-load-progress {
-            image-rendering: pixelated;
-        }
+    .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+        /*background: var(--ac-main) i;*/
+        background-color: var(--ac-main) i;
+        border-radius: 6px;            
+    }
 
-        .html5-progress-bar-container,
-        .ytp-progress-bar-container {
-            height: 12px i;
-        }
+    .ytp-chrome-controls .ytp-button.ytp-youtube-button:hover:not([aria-disabled="true"]):not([disabled]) .ytp-svg-fill-logo-tube-lozenge {
+        fill: var(--ac-main) i;
+    }
 
-        .html5-progress-bar,
-        .ytp-progress-bar {
-            margin-top: 12px i;
-        }
+    .ytp-cued-thumbnail-overlay:hover .ytp-large-play-button-bg,
+    .ytp-large-play-button.ytp-touch-device .ytp-large-play-button-bg {
+        fill: var(--ac-main) i;
+    }
 
-        .html5-progress-list,
-        .ytp-progress-list,
-        .video-ads .html5-progress-list.html5-ad-progress-list,
-        .video-ads .ytp-progress-list.ytp-ad-progress-list {
-            height: 12px i;
-        }
+    .resume-playback-progress-bar {
+        background: var(--ac-main) i;
+    }
 
-        .ytp-volume-slider-track {
-            background: #0C4177 i;
-        }
+    .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+        background-color: var(--ac-main) i;
+    }
+
+    .yt-uix-checkbox-on-off input-extras2-disabled[type="checkbox"]:checked + label {
+        background-color: var(--ac-main) i;
+    }
+
+    .video-extras-sparkbar-likes-extras2-disabled {
+        background-color: var(--ac-main) i;
+    }
+
+    tp-yt-paper-button.ytd-subscribe-button-renderer {
+        background-color: var(--ac-main);
+        transition: all 1s i;
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    tp-yt-paper-button.ytd-subscribe-button-renderer:active 
+    tp-yt-paper-button.ytd-subscribe-button-renderer:hover,
+    tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover {
+        background-color: var(--ac-main2);
+        transition: all 1s i;
+        transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    }           
+
+    .badge-style-type-simple.ytd-badge-supported-renderer,
+    .badge-style-type-live-now.ytd-badge-supported-renderer,
+    .badge-style-type-red.ytd-badge-supported-renderer,
+    #privacy-stats yt-icon.ytd-badge-supported-renderer {
+        background: var(--ac-main) i;
+        border: none;
+    }
+
+    #country-code.ytd-topbar-logo-renderer {
+        color: var(--ac-main);
     }
 
     /* WATCHED BADGE // "МЕТКА ПРОСМОТРЕНО" */
