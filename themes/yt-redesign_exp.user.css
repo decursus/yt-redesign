@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.5-exp
+@version      0.5.5-exp_fix-1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -24,8 +24,9 @@ t = transparent
 BLUR setting works only in Dark Theme
 РАЗМЫТИЕ работает только в тёмной теме
 */
+
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.5-exp \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.5-exp_fix1 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -43,11 +44,11 @@ BLUR setting works only in Dark Theme
         --day-lighter: #EAEAEA;
         --day-lightest: #FFFFFF;
         /* Night // Ночь */
-        --night-darkest: #16161a /*#14191f*/ /*#1C1F28*/;
-        --night-darker: #16161a /*#14191f*/ /*#232733*/;
+        --night-darkest: #16161a;
+        --night-darker: #16161a;
         --night-dark: #333949;
         --night-light: #6B7699;
-        --night-lighter: #e1e5ea/*#9CA2B7*/;
+        --night-lighter: #e1e5ea;
         /* Like // Лайк */
         --gr-red: #ee353e;
         --gr-green: #20944b;
@@ -56,6 +57,7 @@ BLUR setting works only in Dark Theme
         /* Accent Color // Актентирующий цвет */
         if yt-accentclr==stand {
             --ac-main:#cd2e36
+            --ac-main2:#a4252b
         }
         
         else if yt-accentclr==blu {
@@ -349,7 +351,6 @@ BLUR setting works only in Dark Theme
         }
 
         .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
-            /*background: var(--ac-yellw) i;*/
             background-color: var(--ac-yellw) i;
             border-radius: 6px;            
         } 
