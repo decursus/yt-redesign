@@ -4,7 +4,7 @@ Simplified theme redesign for YouTube :smile:.
 The theme was originally made for myself, so it's pretty straightforward. But a few my acquaintance liked it, so I decided to share it on GitHub.
 
 ## Preview
-You can find a preview of the theme in [Preview](https://github.com/decursus/yt-redesign/tree/master/preview).
+You can find a preview of the theme in [Preview](https://github.com/decursus/yt-redesign/tree/master/preview) folder.
 
 
 ## Quick Installation
