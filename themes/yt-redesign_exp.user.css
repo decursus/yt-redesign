@@ -1360,7 +1360,7 @@ BLUR setting works only in Dark Theme
     
     if yt-a_dist==on {
         #contents {
-            display: none !important;
+            display: none i;
         }
 
         #text.yt-chip-cloud-chip-renderer {
@@ -1368,7 +1368,7 @@ BLUR setting works only in Dark Theme
         }
 
         #text.yt-chip-cloud-chip-renderer::after {
-            content: "👀" !important;
+            content: "👀" i;
             font-size: 14px;
         }
     }
