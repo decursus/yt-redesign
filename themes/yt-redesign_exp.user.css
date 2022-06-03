@@ -5,11 +5,12 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.7-exp_fix2
+@version      0.5.8-exp
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
 
+@var select yt-a_dist "Anti-Distraction" ["off:Disable", "on:Enable"]
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
 @var select yt-logo "Logo" ["new:New", "def:Default"]
 @var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow"]
@@ -23,10 +24,10 @@ i = !important
 t = transparent
 
 /* 
-To replace the logo, I recommend using the "Youtube Logo Changer" by xyadx
+To replace the logo, I recommend using* the "Youtube Logo Changer" by xyadx
 https://userstyles.world/style/1791/youtube-logo-changer 
 
-It is recommended to disable the "LOGO // LOGO TYPE" section in order to display the style correctly
+*It is recommended to disable the "LOGO // LOGO TYPE" section in order to display the style correctly
 */
 
 /* 
@@ -35,7 +36,7 @@ BLUR setting works only in Dark Theme
 */
 
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.7-exp_fix2 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.8-exp \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -1330,4 +1331,45 @@ BLUR setting works only in Dark Theme
             color: #ffa8ba;
         }
     }  
+}
+
+
+@-moz-document domain("youtube.com") {
+    /* "YouTube anti-distraction" made by Fighter169mobile 
+    https://userstyles.org/styles/216206/youtube-anti-distraction */
+    // Remove notification button // Удаление иконки оповещений
+    
+    if yt-a_dist==on {
+        .style-scope.ytd-notification-topbar-button-renderer{
+            display: none;
+        }
+    }
+}
+
+@-moz-document url-prefix("https://www.youtube.com/watch") {
+    // Removes recommendation view after watching videos. Turn off autoplay too if you want. 
+    
+    if yt-a_dist==on {
+        #secondary, #related {
+            display: none;
+        }
+    }
+}
+
+@-moz-document url("https://www.youtube.com/") {
+    
+    if yt-a_dist==on {
+        #contents {
+            display: none !important;
+        }
+
+        #text.yt-chip-cloud-chip-renderer {
+            font-size: 0;
+        }
+
+        #text.yt-chip-cloud-chip-renderer::after {
+            content: "👀" !important;
+            font-size: 14px;
+        }
+    }
 }
