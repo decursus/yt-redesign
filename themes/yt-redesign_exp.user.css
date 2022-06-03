@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.5-exp_fix-2
+@version      0.5.7-exp
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -26,7 +26,7 @@ BLUR setting works only in Dark Theme
 */
 
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.5-exp_fix-2 \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.7-exp \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -558,7 +558,7 @@ BLUR setting works only in Dark Theme
     }
 
     /* LIKE COLOR // ЦВЕТ ЛАЙКА */
-    if yt-likecolor==rb {
+    if yt-likecolor==gr {
         #container.ytd-sentiment-bar-renderer {
             background-color: var(--gr-red) i;
         }
@@ -1339,7 +1339,37 @@ BLUR setting works only in Dark Theme
         background: var(--scrollbar-active);
     }
     
-    /* Footer // Подвал */
+    /* ============ Watch Page Fix // Фикс страницы просмотра ============ */
+    ytd-watch-metadata {
+        display: none i;
+    }
+
+    #meta-contents[hidden],
+    #info-contents[hidden] {
+        display: block i;
+    }
+
+    // Removes second comment section // Удаление второй секции комментариев
+    #comment-teaser.ytd-watch-metadata {
+        display: none;
+    }
+
+    // Removes border around channel name and sub button // Удаление обводки вокруг названия каналы и кнопки "подписаться"
+    #owner.ytd-watch-metadata {
+        border: none;
+    }
+
+    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+        border: none;
+    }
+
+    #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+        background-color: t i;
+        border-top: none i;
+        border-bottom: none i;
+    }  
+    
+    /* ============ Footer // Подвал ============ */
     footer,
     #footer.ytd-guide-renderer > #copyright {
         width: 100% i;
@@ -1355,5 +1385,5 @@ BLUR setting works only in Dark Theme
             margin-top: 2rem;
             color: #ffa8ba;
         }
-    }
+    }  
 }
