@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-redesign_exp.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.7-exp
+@version      0.5.7-exp_fix1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -13,6 +13,7 @@
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
 @var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow"]
 @var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
+@var select yt-watchpage "Watch Page" ["new:New", "old:Old"]
 @var select yt-blur "Blur (experimental)" ["off:Off", "on:On"]
 
 ==/UserStyle== */
@@ -26,7 +27,7 @@ BLUR setting works only in Dark Theme
 */
 
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.7-exp \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.7-exp_fix1 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -1340,34 +1341,36 @@ BLUR setting works only in Dark Theme
     }
     
     /* ============ Watch Page Fix // Фикс страницы просмотра ============ */
-    ytd-watch-metadata {
-        display: none i;
-    }
+    if yt-watchpage==old {
+        ytd-watch-metadata {
+            display: none i;
+        }
 
-    #meta-contents[hidden],
-    #info-contents[hidden] {
-        display: block i;
-    }
+        #meta-contents[hidden],
+        #info-contents[hidden] {
+            display: block i;
+        }
 
-    // Removes second comment section // Удаление второй секции комментариев
-    #comment-teaser.ytd-watch-metadata {
-        display: none;
-    }
+        // Removes second comment section // Удаление второй секции комментариев
+        #comment-teaser.ytd-watch-metadata {
+            display: none;
+        }
 
-    // Removes border around channel name and sub button // Удаление обводки вокруг названия каналы и кнопки "подписаться"
-    #owner.ytd-watch-metadata {
-        border: none;
-    }
+        // Removes border around channel name and sub button // Удаление обводки вокруг названия каналы и кнопки "подписаться"
+        #owner.ytd-watch-metadata {
+            border: none;
+        }
 
-    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
-        border: none;
-    }
+        ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+            border: none;
+        }
 
-    #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-        background-color: t i;
-        border-top: none i;
-        border-bottom: none i;
-    }  
+        #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+            background-color: t i;
+            border-top: none i;
+            border-bottom: none i;
+        }
+    }
     
     /* ============ Footer // Подвал ============ */
     footer,
