@@ -5,7 +5,7 @@
 @homepageURL  https://github.com/decursus/yt-redesign
 @updateURL    https://raw.githubusercontent.com/decursus/yt-redesign/master/themes/yt-mat-des.user.css
 @supportURL   https://vk.me/dstears
-@version      0.5.7-stable
+@version      0.5.7-stable_fix-1
 @author       decursus, stockholm tears
 @license      CC-BY-NC-4.0
 @preprocessor stylus
@@ -13,7 +13,6 @@
 @var select yt-lang "Language" ["eng:English", "rus:Русский", "ukr:Український"]
 @var select yt-logo "Logo" ["new:New", "def:Default"]
 @var select yt-accentclr "Accent Color" ["stand:Standart", "blu:Blue", "aspdbl:Aspid-Blue", "orng:Orange", "pnk:Pink", "yellw:Yellow"]
-@var select yt-likecolor "Like Color" ["stand:Standart", "gr:Green and Red", "pv:Pink and Violet"]
 @var select yt-watchpage "Watch Page" ["new:New", "old:Old"]
 
 ==/UserStyle== */
@@ -22,7 +21,7 @@ i = !important
 t = transparent
 
 @-moz-document domain("www.youtube.com") {
-    note ?= '\a\a YT Redesign \a v0.5.7-stable \a\a'
+    note ?= '\a\a YT Redesign \a v0.5.7-stable_fix-1 \a\a'
     note += '🦊 Made by d,st 🦊'    
     
     /* ============ COLOR PALETTE // ЦВЕТОВАЯ ПАЛИТРА ============ */
@@ -488,53 +487,6 @@ t = transparent
             opacity: .8;
             color: #fff;
             background: #121212
-        }
-    }
-
-    /* LIKE COLOR // ЦВЕТ ЛАЙКА */
-    if yt-likecolor==gr {
-        #container.ytd-sentiment-bar-renderer {
-            background-color: var(--gr-red) i;
-        }
-
-        ytd-sentiment-bar-renderer[activated_] #like-bar.ytd-sentiment-bar-renderer,
-        #like-bar.ytd-sentiment-bar-renderer {
-            background: var(--gr-green) i;
-        }
-
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:first-child,
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(3) {
-            --yt-spec-call-to-action: var(--gr-green) i;
-            --iron-icon-fill-color: var(--gr-green) i;
-        }
-
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(2),
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(5) {
-            --yt-spec-call-to-action: var(--gr-red) i;
-            --iron-icon-fill-color: var(--gr-red) i;
-        }
-    }
-
-    else if yt-likecolor==pv {
-        #container.ytd-sentiment-bar-renderer {
-            background-color: var(--pv-violet) i;
-        }
-
-        ytd-sentiment-bar-renderer[activated_] #like-bar.ytd-sentiment-bar-renderer,
-        #like-bar.ytd-sentiment-bar-renderer {
-            background: var(--pv-pink) i;
-        }
-
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:first-child,
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(3) {
-            --yt-spec-call-to-action: var(--pv-pink) i;
-            --iron-icon-fill-color: var(--pv-pink) i;
-        }
-
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(2),
-        ytd-toggle-button-renderer.style-default-active[is-icon-button]:nth-child(5) {
-            --yt-spec-call-to-action: var(--pv-violet) i;
-            --iron-icon-fill-color: var(--pv-violet) i;
         }
     }
 
